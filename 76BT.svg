@@ -1,0 +1,316 @@
+<svg width="100%" height="100%" viewBox="0 0 595.57708 595.3125" id="svg_logo_motion" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="purple-globe-gradient-tune" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7601ff">
+        <animate attributeName="stop-color" values="#7601ff;#9b2dff;#7601ff" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#b73eff">
+        <animate attributeName="stop-color" values="#b73eff;#7601ff;#b73eff" dur="4s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <clipPath id="globe-grid-clip-tune">
+      <circle cx="129.75656" cy="155.31041" r="160.58" />
+    </clipPath>
+
+    <style type="text/css"><![CDATA[
+      .base-circle,
+      .outer-ring-group,
+      .signal-wave,
+      .globe-fill,
+      .globe-border,
+      .ls-float-group,
+      .ls-emblem-path {
+        transform-origin: 129.75656px 155.31041px;
+        will-change: transform, opacity;
+      }
+
+      /* 1. Base Circle Entrance */
+      .base-circle {
+        fill: #1c283d;
+        fill-opacity: 0;
+        stroke: #7601ff;
+        stroke-width: 8;
+        stroke-linecap: round;
+        stroke-dasharray: 1005 1020;
+        stroke-dashoffset: 1005;
+        stroke-opacity: 0;
+        animation: entranceBase 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+      }
+      @keyframes entranceBase {
+        0% {
+          stroke-dashoffset: 1005;
+          fill-opacity: 0;
+          stroke: #7601ff;
+          stroke-width: 8;
+          stroke-opacity: 1;
+          transform: scale(0.92);
+        }
+        50% {
+          stroke-dashoffset: 0;
+          fill-opacity: 0.18;
+          stroke: #7601ff;
+          stroke-width: 8;
+          stroke-opacity: 1;
+          transform: scale(1.025);
+        }
+        80% {
+          stroke-dashoffset: 0;
+          fill-opacity: 0.85;
+          stroke: #1c283d;
+          stroke-width: 4;
+          stroke-opacity: 1;
+          transform: scale(0.995);
+        }
+        100% {
+          stroke-dashoffset: 0;
+          fill: #1c283d;
+          fill-opacity: 1;
+          stroke-width: 0;
+          stroke-opacity: 0;
+          transform: scale(1);
+        }
+      }
+
+      /* 2. Outer Ring Draw & Idle Pulse */
+      .outer-ring-group {
+        animation: ringPulse 3.2s ease-in-out 3.2s infinite;
+      }
+      .outer-ring-draw {
+        stroke: #fefefe;
+        stroke-width: 6.5;
+        stroke-linecap: round;
+        stroke-dasharray: 1005 1020;
+        stroke-dashoffset: 1005;
+        stroke-opacity: 0;
+        animation: entranceRing 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards;
+      }
+      @keyframes entranceRing {
+        0% { stroke-dashoffset: 1005; stroke-opacity: 0; }
+        5% { stroke-opacity: 1; }
+        100% { stroke-dashoffset: 0; stroke-opacity: 1; }
+      }
+      @keyframes ringPulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.018); opacity: 0.88; }
+      }
+
+      /* 3. Dual Staggered Radar Signal Waves */
+      .signal-wave {
+        opacity: 0;
+        animation: radarWave 3.2s cubic-bezier(0.16, 1, 0.3, 1) 3.2s infinite;
+      }
+      .signal-wave-delayed {
+        animation-delay: 4.8s;
+      }
+      @keyframes radarWave {
+        0% {
+          transform: scale(0.76);
+          opacity: 0;
+          stroke-width: 5;
+        }
+        12% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1.15);
+          opacity: 0;
+          stroke-width: 1.2;
+        }
+      }
+
+      /* 4. Globe Core & Border Entrance */
+      .globe-fill {
+        opacity: 0;
+        transform: scale(0.82);
+        animation: entranceGlobe 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
+      }
+      @keyframes entranceGlobe {
+        0% { opacity: 0; transform: scale(0.82); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+
+      .globe-border {
+        opacity: 0;
+        transform: scale(0.96);
+        animation: entranceBorder 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.35s forwards;
+      }
+      @keyframes entranceBorder {
+        0% { opacity: 0; transform: scale(0.96); }
+        100% { opacity: 0.95; transform: scale(1); }
+      }
+
+      /* 5. Seamless Crossfade: Rope Draw -> 3D Rotating Grid */
+      .rope-globe {
+        stroke-dasharray: 1005 1020;
+        stroke-dashoffset: 1005;
+        opacity: 0;
+        animation: entranceGridRope 2s cubic-bezier(0.4, 0, 0.2, 1) 0.9s forwards;
+      }
+      @keyframes entranceGridRope {
+        0% { stroke-dashoffset: 1005; opacity: 0; }
+        5% { stroke-dashoffset: 1005; opacity: 0.95; }
+        78%, 88% { stroke-dashoffset: 0; opacity: 0.95; }
+        100% { stroke-dashoffset: 0; opacity: 0; visibility: hidden; }
+      }
+
+      .rotating-globe-group {
+        opacity: 0;
+        animation: rotatingGridFadeIn 0.4s ease-out 2.5s forwards;
+      }
+      @keyframes rotatingGridFadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 0.95; }
+      }
+
+      /* 6. Clean Emblem Draw & GPU-Friendly Float */
+      .ls-float-group {
+        filter: drop-shadow(0px 8px 14px rgba(18, 26, 42, 0.6));
+        animation: emblemFloat 3.6s ease-in-out 3.3s infinite;
+      }
+      @keyframes emblemFloat {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(-6px) scale(1.028); }
+      }
+
+      .ls-emblem-path {
+        fill: #fefefe;
+        stroke: #fefefe;
+        stroke-width: 5.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1005 1020;
+        stroke-dashoffset: 1005;
+        stroke-opacity: 0;
+        fill-opacity: 0;
+        animation: entranceLSEmblem 1.5s cubic-bezier(0.4, 0, 0.2, 1) 1.65s forwards;
+      }
+      .ls-emblem-s {
+        animation-delay: 1.83s;
+      }
+      @keyframes entranceLSEmblem {
+        0% {
+          stroke-dashoffset: 1005;
+          stroke-opacity: 0;
+          fill-opacity: 0;
+          stroke-width: 5.5;
+          transform: scale(0.96);
+        }
+        6% {
+          stroke-dashoffset: 1005;
+          stroke-opacity: 1;
+          fill-opacity: 0;
+        }
+        68% {
+          stroke-dashoffset: 0;
+          stroke-opacity: 1;
+          fill-opacity: 0;
+          stroke-width: 5.5;
+          transform: scale(1.01);
+        }
+        85% {
+          stroke-dashoffset: 0;
+          stroke-opacity: 1;
+          fill-opacity: 0.75;
+          stroke-width: 3;
+          transform: scale(1);
+        }
+        100% {
+          stroke-dashoffset: 0;
+          stroke-opacity: 0;
+          fill-opacity: 1;
+          stroke-width: 0;
+          transform: scale(1);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    ]]></style>
+  </defs>
+
+  <g id="g5" transform="translate(168.03198,142.34584)">
+    <!-- Base Dark Circle -->
+    <path id="path1" class="base-circle" pathLength="1000" d="M 129.75656,-109.88959 A 265.2,265.2 0 1 1 129.75656,420.51041 A 265.2,265.2 0 1 1 129.75656,-109.88959 Z" />
+
+    <!-- Dual Radar Signal Waves -->
+    <circle class="signal-wave" cx="129.75656" cy="155.31041" r="227.45" fill="none" stroke="#cc90fd" />
+    <circle class="signal-wave signal-wave-delayed" cx="129.75656" cy="155.31041" r="227.45" fill="none" stroke="#cc90fd" />
+
+    <!-- Outer White Ring -->
+    <g class="outer-ring-group">
+      <path class="outer-ring-draw" pathLength="1000" fill="none" d="M 129.75656,-72.13959 A 227.45,227.45 0 1 1 129.75656,382.76041 A 227.45,227.45 0 1 1 129.75656,-72.13959 Z" />
+    </g>
+
+    <!-- Purple Gradient Globe -->
+    <circle class="globe-fill" cx="129.75656" cy="155.31041" r="172.58" fill="url(#purple-globe-gradient-tune)" />
+
+    <!-- Intro Rope Grid Draw-On -->
+    <g clip-path="url(#globe-grid-clip-tune)">
+      <path class="rope-globe" pathLength="1000" fill="none" stroke="#cc90fd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" d="M 129.75656,-5.26959 A 160.58,160.58 0 0 0 23.5429,34.8754 L 235.9703,34.8754 A 160.58,160.58 0 0 1 268.8230,75.0204 L -9.3098,75.0204 A 160.58,160.58 0 0 0 -25.7243,115.1654 L 285.2375,115.1654 A 160.58,160.58 0 0 1 290.3366,155.3104 L -30.8234,155.3104 A 160.58,160.58 0 0 0 -25.7243,195.4554 L 285.2375,195.4554 A 160.58,160.58 0 0 1 268.8230,235.6004 L -9.3098,235.6004 A 160.58,160.58 0 0 0 23.5429,275.7454 L 235.9703,275.7454 A 160.58,160.58 0 0 1 129.75656,315.89041 A 160.58,160.58 0 0 1 129.75656,-5.26959 A 160.58,160.58 0 0 1 129.75656,315.89041 A 147.7336,160.58 0 0 1 129.75656,-5.26959 A 147.7336,160.58 0 0 1 129.75656,315.89041 A 126.8582,160.58 0 0 1 129.75656,-5.26959 A 126.8582,160.58 0 0 1 129.75656,315.89041 A 95.2239,160.58 0 0 1 129.75656,-5.26959 A 95.2239,160.58 0 0 1 129.75656,315.89041 A 49.7798,160.58 0 0 1 129.75656,-5.26959 A 49.7798,160.58 0 0 1 129.75656,315.89041 L 129.75656,-5.26959" />
+    </g>
+
+    <!-- Continuous 3D Spherical Rotating Grid (Phase-Locked Single-Step Meridians) -->
+    <g class="rotating-globe-group" clip-path="url(#globe-grid-clip-tune)">
+      <g fill="none" stroke="#cc90fd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Latitude Lines -->
+        <line x1="-30.8234" y1="34.8754" x2="290.3366" y2="34.8754" />
+        <line x1="-30.8234" y1="75.0204" x2="290.3366" y2="75.0204" />
+        <line x1="-30.8234" y1="115.1654" x2="290.3366" y2="115.1654" />
+        <line x1="-30.8234" y1="155.3104" x2="290.3366" y2="155.3104" />
+        <line x1="-30.8234" y1="195.4554" x2="290.3366" y2="195.4554" />
+        <line x1="-30.8234" y1="235.6004" x2="290.3366" y2="235.6004" />
+        <line x1="-30.8234" y1="275.7454" x2="290.3366" y2="275.7454" />
+
+        <!-- 10 Phase-Locked Longitude Meridians (West-to-East True 3D Projection) -->
+        <g transform="translate(129.75656, 155.31041)">
+          <path vector-effect="non-scaling-stroke" d="M 0,-160.58 A 160.58,160.58 0 0 1 0,160.58">
+            <animateTransform attributeName="transform" type="scale" begin="2.5s" dur="0.9s" values="-1,1; -0.92,1" repeatCount="indefinite" />
+          </path>
+          <path vector-effect="non-scaling-stroke" d="M 0,-160.58 A 160.58,160.58 0 0 1 0,160.58">
+            <animateTransform attributeName="transform" type="scale" begin="2.5s" dur="0.9s" values="-0.92,1; -0.79,1" repeatCount="indefinite" />
+          </path>
+          <path vector-effect="non-scaling-stroke" d="M 0,-160.58 A 160.58,160.58 0 0 1 0,160.58">
+            <animateTransform attributeName="transform" type="scale" begin="2.5s" dur="0.9s" values="-0.79,1; -0.593,1" repeatCount="indefinite" />
+          </path>
+          <path vector-effect="non-scaling-stroke" d="M 0,-160.58 A 160.58,160.58 0 0 1 0,160.58">
+            <animateTransform attributeName="transform" type="scale" begin="2.5s" dur="0.9s" values="-0.593,1; -0.31,1" repeatCount="indefinite" />
+          </path>
+          <path vector-effect="non-scaling-stroke" d="M 0,-160.58 A 160.58,160.58 0 0 1 0,160.58">
+            <animateTransform attributeName="transform" type="scale" begin="2.5s" dur="0.9s" values="-0.31,1; 0,1" repeatCount="indefinite" />
+          </path>
+          <path vector-effect="non-scaling-stroke" d="M 0,-160.58 A 160.58,160.58 0 0 1 0,160.58">
+            <animateTransform attributeName="transform" type="scale" begin="2.5s" dur="0.9s" values="0,1; 0.31,1" repeatCount="indefinite" />
+          </path>
+          <path vector-effect="non-scaling-stroke" d="M 0,-160.58 A 160.58,160.58 0 0 1 0,160.58">
+            <animateTransform attributeName="transform" type="scale" begin="2.5s" dur="0.9s" values="0.31,1; 0.593,1" repeatCount="indefinite" />
+          </path>
+          <path vector-effect="non-scaling-stroke" d="M 0,-160.58 A 160.58,160.58 0 0 1 0,160.58">
+            <animateTransform attributeName="transform" type="scale" begin="2.5s" dur="0.9s" values="0.593,1; 0.79,1" repeatCount="indefinite" />
+          </path>
+          <path vector-effect="non-scaling-stroke" d="M 0,-160.58 A 160.58,160.58 0 0 1 0,160.58">
+            <animateTransform attributeName="transform" type="scale" begin="2.5s" dur="0.9s" values="0.79,1; 0.92,1" repeatCount="indefinite" />
+          </path>
+          <path vector-effect="non-scaling-stroke" d="M 0,-160.58 A 160.58,160.58 0 0 1 0,160.58">
+            <animateTransform attributeName="transform" type="scale" begin="2.5s" dur="0.9s" values="0.92,1; 1,1" repeatCount="indefinite" />
+          </path>
+        </g>
+      </g>
+    </g>
+
+    <!-- Globe Inner Border -->
+    <circle class="globe-border" cx="129.75656" cy="155.31041" r="160.58" fill="none" stroke="#cc90fd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Optimized Geometric "LS" Emblem with Staggered Draw-On -->
+    <g class="ls-float-group">
+      <!-- Left "L" Geometric Polygon (Cleaned from 66 noisy points to 6 exact vertices) -->
+      <path class="ls-emblem-path ls-emblem-l" pathLength="1000" d="M 103.16,284.43 L 6.46,180.74 L 62.06,46.96 L 120.36,46.83 L 71.90,164.39 L 128.07,224.77 Z" />
+      <!-- Right "S" Geometric Polygon (Cleaned from 66 noisy points to 9 exact vertices) -->
+      <path class="ls-emblem-path ls-emblem-s" pathLength="1000" d="M 173.41,285.74 L 115.08,285.75 L 163.53,178.43 L 150.66,163.52 L 100.84,163.51 L 153.54,46.83 L 211.84,46.83 L 180.36,116.68 L 226.20,169.03 Z" />
+    </g>
+  </g>
+</svg>
