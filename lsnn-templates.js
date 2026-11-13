@@ -383,6 +383,184 @@ Thank you for your interest in joining the <strong>Los Santos News Network (LSNN
     ].join('\n'));
   }
 
+  // =========================================================================
+  // 4. DOCUMENT GENERATORS: REINSTATEMENT & EXTERNAL MEDIA TRANSFER
+  // =========================================================================
+  function reinstatementApplication(data) {
+    const photoUrl = data.photoUrl && data.photoUrl.trim() ? data.photoUrl.trim() : assets.photoFallback;
+    const isReinstatement = data.pathway === 'reinstatement';
+    const pathwayTitle = isReinstatement
+      ? 'Category A: Internal LSNN Reinstatement'
+      : 'Category B: External Media Transfer';
+    const pathwayTag = isReinstatement ? '[REINSTATEMENT]' : '[TRANSFER]';
+
+    const topSummary = `<div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; border: 1px solid #cbd5e1; background-color: #f8fafc; padding: 14px 16px; margin-bottom: 18px;">
+<div style="width: 150px; height: 200px; border: 1px solid #1c283d; background-color: #ffffff; overflow: hidden; box-sizing: border-box; flex-shrink: 0; margin: 0 auto;">
+<img src="${escapeHtml(photoUrl)}" alt="Applicant Photo" width="150" height="200" style="width: 150px; height: 200px; object-fit: cover; display: block;" />
+</div>
+<div style="flex: 1; min-width: 260px;">
+<div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #64748b;">Executive Dossier Classification</div>
+<div style="font-size: 19px; font-weight: 800; color: #1c283d; margin: 3px 0 8px 0;">${escapeHtml(pathwayTitle)}</div>
+<table style="width: 100%; border-collapse: collapse; font-size: 13.5px;">
+<tbody>
+<tr style="background-color: #ffffff;">
+<td style="width: 36%; padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #1c283d;">Filing Prefix</td>
+<td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-family: monospace; font-weight: 700; color: #7601ff;">${pathwayTag} ${escapeHtml(data.fullName)}</td>
+</tr>
+<tr style="background-color: #f8fafc;">
+<td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #1c283d;">Initial Status</td>
+<td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #475569;">RECEIVED &mdash; Awaiting HRD Screening</td>
+</tr>
+<tr style="background-color: #ffffff;">
+<td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #1c283d;">Service Covenant</td>
+<td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #15803d;">14-Day Mandatory Active Commitment Accepted</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>`;
+
+    const serviceRows = isReinstatement
+      ? [
+          { num: '2.1', label: 'Former LSNN Division & Peak Rank Held', value: data.formerRankDivision },
+          { num: '2.2', label: 'Approximate Tenure / Service Period at LSNN', value: data.formerTenure },
+          { num: '2.3', label: 'Separation Status & Approximate Date', value: data.separationStatus },
+          { num: '2.4', label: 'Former Direct Supervisor / Executive Reference', value: data.formerReference || 'N/A' },
+          { num: '2.5', label: 'Verifiable LSNN Service / Resignation Archive Link', value: linkHtml(data.serviceProofUrl), rawHtml: true },
+          { num: '2.6', label: 'Reason for Departure & Motivation for Returning', value: data.relocationOrReturnReason }
+        ]
+      : [
+          { num: '2.1', label: 'Previous / Current Media Agency Name', value: data.externalAgencyName },
+          { num: '2.2', label: 'Current / Last Held Rank & Divisional Role', value: data.externalRankRole },
+          { num: '2.3', label: 'Total Active Service Tenure', value: data.externalTenure },
+          { num: '2.4', label: 'Current Service Standing', value: data.externalStanding },
+          { num: '2.5', label: 'Official Transfer Authorization / Honorable Discharge Proof', value: linkHtml(data.transferAuthUrl), rawHtml: true },
+          { num: '2.6', label: 'Roster Archive / Forum Profile Verification Link', value: linkHtml(data.rosterProofUrl), rawHtml: true },
+          { num: '2.7', label: 'Reason for Relocation / Inter-Agency Transfer', value: data.relocationOrReturnReason }
+        ];
+
+    return docWrapper([
+      header({
+        titleHtml: 'Reinstatement &amp;<br />External Media Transfer',
+        divisionName: 'Human Resources Development Division',
+        divisionLogo: assets.logoHrd
+      }),
+      topSummary,
+      section('01', 'Personal & Civic Information', kvTable([
+        { num: '1.1', label: 'Application Pathway', value: pathwayTitle, valueStyle: 'font-weight: 700; color: #7601ff;' },
+        { num: '1.2', label: 'Full Legal Name', value: data.fullName, valueStyle: 'font-weight: 700; color: #1c283d;' },
+        { num: '1.3', label: 'Gender', value: data.gender },
+        { num: '1.4', label: 'Place & Date of Birth', value: data.pobDob },
+        { num: '1.5', label: 'Age', value: data.age },
+        { num: '1.6', label: 'Citizenship / Work Status', value: data.citizenship },
+        { num: '1.7', label: 'Residential Address', value: data.address },
+        { num: '1.8', label: 'Phone Number & Email Address', value: `${data.phone} | ${data.email}` }
+      ], { labelWidth: '38%' })),
+      section('02', 'Prior Media Service Record & Verification', kvTable(serviceRows, { labelWidth: '44%' })),
+      section('03', 'Proposed Divisional Placement & Availability', kvTable([
+        { num: '3.1', label: 'Primary Requested Division', value: data.primaryDivision, valueStyle: 'font-weight: 700; color: #1c283d;' },
+        { num: '3.2', label: 'Secondary Requested Division', value: data.secondaryDivision || 'N/A' },
+        { num: '3.3', label: 'Preferred Working Hours & Weekly Availability', value: `${data.workingHours} (${data.weeklyAvailability})` },
+        { num: '3.4', label: 'Core Editorial, Broadcast, Technical Skills & Licenses', value: data.skills },
+        { num: '3.5', label: 'Verified Portfolio / Published Works / Broadcast Archives', value: linkHtml(data.portfolioUrl), rawHtml: true }
+      ], { labelWidth: '42%' })),
+      section('04', 'Executive Competency & Integration Statements', essayBlocks([
+        { num: '4.1', question: 'Summarize your key operational contributions, leadership roles, or media productions from your prior service.', answer: data.q1TrackRecord },
+        { num: '4.2', question: 'How does your prior experience enable you to integrate immediately into your requested LSNN division?', answer: data.q2ImmediateValue },
+        { num: '4.3', question: 'How do you uphold editorial neutrality, factual verification, and corporate ethics in fast-moving coverage?', answer: data.q3Integrity }
+      ])),
+      section('05', 'Statutory Clearances & Background Declaration', kvTable([
+        { num: '5.1', label: 'State of San Andreas Identification Card', value: linkHtml(data.idCardUrl), rawHtml: true },
+        { num: '5.2', label: "Valid State Driver's License", value: linkHtml(data.driverLicenseUrl), rawHtml: true },
+        { num: '5.3', label: 'LSPD Criminal Record Clearance Filing', value: linkHtml(data.criminalRecordUrl), rawHtml: true },
+        { num: '5.4', label: 'Have you ever been convicted of any criminal offense?', value: data.criminalConviction },
+        { num: '5.5', label: 'Have you ever received a Dishonorable Discharge or administrative disqualification?', value: data.priorDisqualification }
+      ], { labelWidth: '46%' })),
+      section('06', '(( Out of Character (OOC) Verification ))', kvTable([
+        { num: '6.1', label: 'Nama Akun UCP Jogjagamers', value: data.ucpName },
+        { num: '6.2', label: 'Nama & Level Karakter Utama JGVRP', value: data.mainCharLevel },
+        { num: '6.3', label: 'Karakter Utama (Main) & Lulus Tes RP-Quiz', value: data.isMainAndQuiz },
+        { num: '6.4', label: 'Tergabung Discord Komunitas, WhatsApp Aktif & TeamSpeak 3 + Mic Jernih', value: data.hasCommsReady },
+        { num: '6.5', label: 'Bukti Rekam Jejak Faksi Media / Roster / Surat Resign Accepted', value: linkHtml(data.oocMediaHistoryUrl), rawHtml: true },
+        { num: '6.6', label: 'Tidak Sedang Double Faction & Bebas Blacklist Faksi Media / Instansi Resmi', value: data.cleanStandingOoc },
+        { num: '6.7', label: 'Screenshot /stats (Unedited)', value: linkHtml(data.statsUrl), rawHtml: true },
+        { num: '6.8', label: 'Screenshot /mywarns (Unedited — Maks. 5 Warns)', value: linkHtml(data.mywarnsUrl), rawHtml: true },
+        { num: '6.9', label: 'Screenshot Forum Association UCP Jogjagamers', value: linkHtml(data.forumAssocUrl), rawHtml: true }
+      ], { labelWidth: '50%' }), { bg: '#f8fafc' }),
+      section('07', 'Legal Covenant, 14-Day Service Commitment & Signature', signatureFooter({
+        declarationHtml: 'I hereby certify that all service records, clearances, and statements submitted in this dossier are authentic and accurate. Upon reinstatement or transfer induction, I formally bind myself to a minimum active service commitment of <strong>14 (fourteen) consecutive days</strong>, acknowledging that premature resignation or unexplained inactivity will result in a <strong>Dishonorable Discharge</strong> and permanent revocation of reinstatement privileges.',
+        signerName: data.fullName,
+        signatureUrl: data.signatureUrl
+      }), { mb: '0' })
+    ].join('\n'));
+  }
+
+  function reinstatementDecision(data) {
+    const statusColors = {
+      'PENDING': '#b45309',
+      'UNDER VERIFICATION': '#1d4ed8',
+      'ACCEPTED FOR BRIEFING': '#15803d',
+      'DENIED': '#b91c1c',
+      'BLACKLISTED': '#7f1d1d'
+    };
+    const color = statusColors[data.status] || '#1c283d';
+
+    const memo = `<div style="border: 1px solid #cbd5e1; padding: 14px 16px; margin-bottom: 18px; background-color: #f8fafc; font-size: 15px; color: #334155; line-height: 1.65;">
+Dear <strong>${escapeHtml(data.applicantName)}</strong>,<br /><br />
+The Human Resources Development Division of the <strong>Los Santos News Network (LSNN)</strong> has reviewed your <strong>${escapeHtml(data.pathwayLabel)}</strong> dossier. Please review your official evaluation status and executive placement notice below.
+</div>`;
+
+    return docWrapper([
+      header({
+        titleHtml: 'Reinstatement &amp; Transfer<br />Evaluation Notice',
+        divisionName: 'Human Resources Development Division',
+        divisionLogo: assets.logoHrd
+      }),
+      memo,
+      section('01', 'Dossier Evaluation & Rank Determination', kvTable([
+        { label: 'Applicant Name', value: data.applicantName, valueStyle: 'color: #1c283d; font-weight: 700;' },
+        { label: 'Application Pathway', value: data.pathwayLabel, valueStyle: 'color: #7601ff; font-weight: 700;' },
+        {
+          label: 'Dossier Status',
+          value: `<span style="color: ${color}; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">${escapeHtml(data.status)}</span>`,
+          rawHtml: true
+        },
+        { label: 'Assigned Division', value: data.assignedDivision || 'Pending Review' },
+        { label: 'Proposed / Approved Rank', value: data.approvedRank || 'Pending Executive Determination', valueStyle: 'color: #1c283d; font-weight: 700;' },
+        { label: 'HRD Remarks & Instructions', value: formatMultiline(data.remarks), rawHtml: true }
+      ], { labelWidth: '34%' })),
+      signatureFooter({
+        signerName: data.staffName,
+        signerRole: 'Human Resources Development Division',
+        signatureUrl: data.signatureUrl
+      })
+    ].join('\n'));
+  }
+
+  function briefingBooking(data) {
+    return docWrapper([
+      header({
+        titleHtml: 'Executive Adaptation Briefing<br />Appointment Request',
+        divisionName: 'Human Resources Development Division',
+        divisionLogo: assets.logoHrd
+      }),
+      section('01', 'Adaptation Briefing Schedule Details', kvTable([
+        { label: 'Candidate Name', value: data.candidateName, valueStyle: 'font-weight: 700; color: #1c283d;' },
+        { label: 'Pathway', value: data.pathway, valueStyle: 'font-weight: 700; color: #7601ff;' },
+        { label: 'Dossier Thread', value: linkHtml(data.dossierUrl), rawHtml: true },
+        { label: 'Preferred Date & Time', value: `${formatDateLosSantos(data.preferredDate)} | ${escapeHtml(data.preferredTime)} State Time`, rawHtml: true },
+        { label: 'Executive Officer', value: data.executiveOfficer || 'First Available' },
+        { label: 'Request Type', value: data.requestType, valueStyle: 'font-weight: 700; color: #1c283d;' },
+        { label: 'Reason for Reschedule', value: data.rescheduleReason || 'N/A' }
+      ], { labelWidth: '34%' })),
+      signatureFooter({
+        declarationHtml: 'I confirm my attendance at LSNN Media Centre (Lindsay Circus, Little Seoul) in business formal attire with valid identification credentials, and reaffirm my 14-day mandatory active service commitment upon induction.',
+        signerName: data.candidateName,
+        signatureUrl: data.signatureUrl
+      })
+    ].join('\n'));
+  }
+
   LSNN.templates = {
     docWrapper,
     header,
@@ -396,6 +574,9 @@ Thank you for your interest in joining the <strong>Los Santos News Network (LSNN
     billingNotice,
     recruitmentApplication,
     hrdDecision,
-    interviewBooking
+    interviewBooking,
+    reinstatementApplication,
+    reinstatementDecision,
+    briefingBooking
   };
 })();

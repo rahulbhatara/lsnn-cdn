@@ -18,6 +18,11 @@
       formatTopicId: null,
       staffGroupSlugs: ['lsnn']
     },
+    reinstatement: {
+      categoryIds: [13],
+      guidelinesTopicId: null,
+      staffGroupSlugs: ['lsnn']
+    },
     assets: {
       logoMain: 'https://cdn.jsdelivr.net/gh/rahulbhatara/lsnn-cdn/vlm2.svg',
       logoPr: 'https://cdn.jsdelivr.net/gh/rahulbhatara/lsnn-cdn/Mq6N.svg',
@@ -32,6 +37,7 @@
     return {
       commercial: { ...base.commercial, ...(custom.commercial || {}) },
       recruitment: { ...base.recruitment, ...(custom.recruitment || {}) },
+      reinstatement: { ...base.reinstatement, ...(custom.reinstatement || {}) },
       assets: { ...base.assets, ...(custom.assets || {}) }
     };
   }
@@ -270,7 +276,7 @@
   }
 
   // =========================================================================
-  // 6. DIGITAL SIGNATURE PAD HANDLER
+  // 6. DIGITAL SIGNATURE PAD & DUAL-MODE SIGNATURE WIDGET (DRAW + UPLOAD)
   // =========================================================================
   function initSignaturePad(canvasId, clearBtnId) {
     const canvas = document.getElementById(canvasId);
@@ -337,6 +343,143 @@
     return {
       isEmpty: () => !hasDrawn,
       toBlob: () => new Promise(resolve => canvas.toBlob(resolve, 'image/png'))
+    };
+  }
+
+  function renderSignatureField({
+    idPrefix,
+    label = 'Digital Signature *',
+    helpText = 'Gambar tanda tangan langsung di kanvas atau unggah gambar tanda tangan Anda (PNG/JPG/WEBP).'
+  }) {
+    const safePrefix = escapeHtml(idPrefix);
+    return `<div class="mb-2" data-lsnn-sig-widget="${safePrefix}">
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+    <label class="form-label fw-semibold mb-0">${escapeHtml(label)}</label>
+    <div class="btn-group btn-group-sm lsnn-sig-mode-tabs" role="group" aria-label="Signature Mode">
+      <button type="button" class="btn btn-outline-primary active" data-sig-mode="draw">
+        <i class="fa fa-pencil me-1"></i> Draw Signature
+      </button>
+      <button type="button" class="btn btn-outline-primary" data-sig-mode="upload">
+        <i class="fa fa-upload me-1"></i> Upload Image / URL
+      </button>
+    </div>
+  </div>
+
+  <div data-sig-pane="draw">
+    <div class="d-flex align-items-start gap-2 flex-wrap">
+      <div class="lsnn-sig-pad-wrap">
+        <canvas id="${safePrefix}Canvas"></canvas>
+      </div>
+      <button type="button" class="btn btn-sm btn-outline-secondary" id="${safePrefix}Clear">
+        <i class="fa fa-eraser me-1"></i> Clear
+      </button>
+    </div>
+  </div>
+
+  <div data-sig-pane="upload" class="d-none">
+    <div class="row g-2 align-items-center">
+      <div class="col-md-7">
+        <div class="input-group input-group-sm mb-2">
+          <input type="text" class="form-control" id="${safePrefix}Url"
+            data-lsnn-preview-target="#${safePrefix}Preview"
+            placeholder="https://... atau upload file gambar" />
+          <label class="btn btn-outline-secondary mb-0" style="cursor:pointer;">
+            <i class="fa fa-upload me-1"></i> Upload
+            <input type="file" accept="image/png,image/jpeg,image/webp"
+              data-lsnn-upload-target="#${safePrefix}Url"
+              data-lsnn-preview-target="#${safePrefix}Preview" hidden />
+          </label>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-secondary" id="${safePrefix}ClearUpload">
+          <i class="fa fa-times me-1"></i> Reset Image
+        </button>
+      </div>
+      <div class="col-md-5">
+        <div class="lsnn-sig-upload-preview">
+          <img id="${safePrefix}Preview" src="${LSNN.config.assets.sigFallback}" alt="Signature Preview" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  ${helpText ? `<small class="text-muted d-block mt-1">${escapeHtml(helpText)}</small>` : ''}
+</div>`;
+  }
+
+  function initSignatureField(idPrefix) {
+    const widget = document.querySelector(`[data-lsnn-sig-widget="${CSS.escape(idPrefix)}"]`);
+    const pad = initSignaturePad(`${idPrefix}Canvas`, `${idPrefix}Clear`);
+    if (!widget) {
+      return {
+        getSignatureUrl: async (prefix = 'sig') => {
+          if (pad && !pad.isEmpty()) {
+            const blob = await pad.toBlob();
+            return uploadFileToNodeBB(blob, `${prefix}-${Date.now()}.png`);
+          }
+          return LSNN.config.assets.sigFallback;
+        }
+      };
+    }
+
+    const urlInput = document.getElementById(`${idPrefix}Url`);
+    const previewImg = document.getElementById(`${idPrefix}Preview`);
+    const resetUploadBtn = document.getElementById(`${idPrefix}ClearUpload`);
+    const modeBtns = widget.querySelectorAll('[data-sig-mode]');
+    const drawPane = widget.querySelector('[data-sig-pane="draw"]');
+    const uploadPane = widget.querySelector('[data-sig-pane="upload"]');
+
+    let currentMode = 'draw';
+
+    function setMode(mode) {
+      currentMode = mode === 'upload' ? 'upload' : 'draw';
+      modeBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.sigMode === currentMode);
+      });
+      if (drawPane) drawPane.classList.toggle('d-none', currentMode !== 'draw');
+      if (uploadPane) uploadPane.classList.toggle('d-none', currentMode !== 'upload');
+    }
+
+    modeBtns.forEach(btn => {
+      btn.addEventListener('click', () => setMode(btn.dataset.sigMode));
+    });
+
+    if (urlInput && previewImg) {
+      const syncPreview = () => {
+        const val = urlInput.value.trim();
+        previewImg.src = /^(https?:\/\/|\/)/i.test(val) ? val : LSNN.config.assets.sigFallback;
+      };
+      urlInput.addEventListener('input', syncPreview);
+
+      // Jika draft localStorage sudah berisi URL gambar tanda tangan, otomatis buka tab upload
+      if (/^(https?:\/\/|\/)/i.test(urlInput.value.trim())) {
+        syncPreview();
+        setMode('upload');
+      }
+    }
+
+    if (resetUploadBtn && urlInput && previewImg) {
+      resetUploadBtn.addEventListener('click', () => {
+        urlInput.value = '';
+        previewImg.src = LSNN.config.assets.sigFallback;
+      });
+    }
+
+    return {
+      setMode,
+      async getSignatureUrl(filePrefix = 'sig') {
+        const uploadedUrl = urlInput ? urlInput.value.trim() : '';
+        if (currentMode === 'upload' && /^(https?:\/\/|\/)/i.test(uploadedUrl)) {
+          return uploadedUrl;
+        }
+        if (currentMode === 'draw' && pad && !pad.isEmpty()) {
+          const blob = await pad.toBlob();
+          return uploadFileToNodeBB(blob, `${filePrefix}-${Date.now()}.png`);
+        }
+        if (/^(https?:\/\/|\/)/i.test(uploadedUrl)) {
+          return uploadedUrl;
+        }
+        return LSNN.config.assets.sigFallback;
+      }
     };
   }
 
@@ -466,6 +609,8 @@
     openModal,
     closeAllModals,
     initSignaturePad,
+    renderSignatureField,
+    initSignatureField,
     createDraftManager,
     createTopic,
     replyTopic,

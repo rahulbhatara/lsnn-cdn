@@ -83,7 +83,7 @@
               <div class="col-12">
                 <label class="form-label fw-semibold">Artwork Direct Image URL (.png / .jpg) *</label>
                 <div class="input-group">
-                  <input type="url" class="form-control" id="lsnnArtworkUrl" placeholder="https://..." />
+                  <input type="text" class="form-control" id="lsnnArtworkUrl" pattern="^(https?://|/).+" placeholder="https://... or upload image" />
                   <label class="btn btn-outline-secondary mb-0" style="cursor:pointer;">
                     <i class="fa fa-upload me-1"></i> Upload Image
                     <input type="file" accept="image/png,image/jpeg,image/webp" data-lsnn-upload-target="#lsnnArtworkUrl" hidden />
@@ -97,22 +97,17 @@
             </div>
           </div>
 
-          <div class="mb-2">
-            <label class="form-label fw-semibold d-flex justify-content-between align-items-center">
-              <span>Digital Signature *</span>
-              <button type="button" class="btn btn-sm btn-outline-secondary" id="lsnnClearClientSig">Clear</button>
-            </label>
-            <div class="lsnn-sig-pad-wrap">
-              <canvas id="lsnnClientSigCanvas"></canvas>
-            </div>
-            <small class="text-muted">Sign inside the box using your mouse or touchscreen.</small>
-          </div>
+          ${utils.renderSignatureField({
+            idPrefix: 'lsnnClientSig',
+            label: 'Digital Signature *',
+            helpText: 'Gambar tanda tangan di kanvas atau unggah gambar tanda tangan Anda.'
+          })}
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-lsnn-close>Cancel</button>
         <button type="button" class="btn btn-primary" id="lsnnSubmitClientBtn">
-          <i class="fa fa-paper-plane"></i> Submit Request & Create Topic
+          <i class="fa fa-paper-plane"></i> Submit Request &amp; Create Topic
         </button>
       </div>
     </div>
@@ -123,7 +118,7 @@
     const modalEl = modalCtrl.el;
     const formEl = document.getElementById('lsnnClientRequestForm');
     const draft = utils.createDraftManager(draftKey, formEl);
-    const sigPad = utils.initSignaturePad('lsnnClientSigCanvas', 'lsnnClearClientSig');
+    const sigField = utils.initSignatureField('lsnnClientSig');
 
     modalEl.querySelectorAll('.lsnn-form-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -156,11 +151,7 @@
       submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Publishing...';
 
       try {
-        let signatureUrl = config.assets.sigFallback;
-        if (sigPad && !sigPad.isEmpty()) {
-          const blob = await sigPad.toBlob();
-          signatureUrl = await utils.uploadFileToNodeBB(blob, `sig-client-${Date.now()}.png`);
-        }
+        const signatureUrl = await sigField.getSignatureUrl('sig-client');
 
         const type = document.getElementById('lsnnFormType').value;
         const clientName = document.getElementById('lsnnClientName').value.trim();
@@ -233,7 +224,7 @@
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title fw-bold">Issue Commercial Billing & Payment Notice</h5>
+        <h5 class="modal-title fw-bold">Issue Commercial Billing &amp; Payment Notice</h5>
         <button type="button" class="btn-close" data-lsnn-close aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -251,7 +242,7 @@
               </select>
             </div>
             <div class="col-12">
-              <label class="form-label fw-semibold">Service Package & Rate Category *</label>
+              <label class="form-label fw-semibold">Service Package &amp; Rate Category *</label>
               <input type="text" class="form-control" id="lsnnBillPackage" placeholder="e.g. Bulk Ads (Public) / Medium Billboard" required />
             </div>
           </div>
@@ -290,7 +281,7 @@
               <input type="text" class="form-control" id="lsnnBillAccName" value="${escapeHtml(savedBank.accountName)}" placeholder="e.g. LSNN Treasury" required />
             </div>
             <div class="col-md-4">
-              <label class="form-label fw-semibold">Staff Name (PR & Marketing) *</label>
+              <label class="form-label fw-semibold">Staff Name (PR &amp; Marketing) *</label>
               <input type="text" class="form-control" id="lsnnBillStaffName" value="${escapeHtml(window.app?.user?.username || '')}" required />
             </div>
           </div>
@@ -298,19 +289,15 @@
           <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" id="lsnnRememberBank" checked />
             <label class="form-check-label small text-muted" for="lsnnRememberBank">
-              Simpan nomor & nama rekening ini di browser saya untuk billing berikutnya
+              Simpan nomor &amp; nama rekening ini di browser saya untuk billing berikutnya
             </label>
           </div>
 
-          <div class="mb-2">
-            <label class="form-label fw-semibold d-flex justify-content-between align-items-center">
-              <span>Staff Digital Signature *</span>
-              <button type="button" class="btn btn-sm btn-outline-secondary" id="lsnnClearStaffSig">Clear</button>
-            </label>
-            <div class="lsnn-sig-pad-wrap">
-              <canvas id="lsnnStaffSigCanvas"></canvas>
-            </div>
-          </div>
+          ${utils.renderSignatureField({
+            idPrefix: 'lsnnStaffSig',
+            label: 'Staff Digital Signature *',
+            helpText: 'Gambar tanda tangan di kanvas atau unggah gambar tanda tangan Anda.'
+          })}
         </form>
       </div>
       <div class="modal-footer">
@@ -324,7 +311,7 @@
 </div>`;
 
     const modalCtrl = utils.openModal(modalHtml, 'lsnnBillingModal');
-    const sigPad = utils.initSignaturePad('lsnnStaffSigCanvas', 'lsnnClearStaffSig');
+    const sigField = utils.initSignatureField('lsnnStaffSig');
 
     const qtyEl = document.getElementById('lsnnBillQty');
     const rateEl = document.getElementById('lsnnBillRate');
@@ -355,11 +342,7 @@
           localStorage.removeItem(storageKey);
         }
 
-        let signatureUrl = config.assets.sigFallback;
-        if (sigPad && !sigPad.isEmpty()) {
-          const blob = await sigPad.toBlob();
-          signatureUrl = await utils.uploadFileToNodeBB(blob, `sig-staff-${Date.now()}.png`);
-        }
+        const signatureUrl = await sigField.getSignatureUrl('sig-staff');
 
         const replyContent = templates.billingNotice({
           clientName: document.getElementById('lsnnBillClientName').value.trim(),

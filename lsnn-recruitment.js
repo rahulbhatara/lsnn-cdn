@@ -34,16 +34,16 @@
         <!-- Stepper Navigation -->
         <div class="lsnn-stepper" id="lsnnRecStepper">
           <button type="button" class="lsnn-step-pill active" data-step-target="1">
-            <span class="lsnn-step-num">1</span> Personal & Photo
+            <span class="lsnn-step-num">1</span> Personal &amp; Photo
           </button>
           <button type="button" class="lsnn-step-pill" data-step-target="2">
-            <span class="lsnn-step-num">2</span> Role & Documents
+            <span class="lsnn-step-num">2</span> Role &amp; Documents
           </button>
           <button type="button" class="lsnn-step-pill" data-step-target="3">
             <span class="lsnn-step-num">3</span> Essay Assessment
           </button>
           <button type="button" class="lsnn-step-pill" data-step-target="4">
-            <span class="lsnn-step-num">4</span> OOC & Signature
+            <span class="lsnn-step-num">4</span> OOC &amp; Signature
           </button>
         </div>
 
@@ -64,8 +64,9 @@
                     data-lsnn-upload-target="#lsnnAppPhotoUrl"
                     data-lsnn-preview-target="#lsnnAppPhotoPreview" hidden />
                 </label>
-                <input type="url" class="form-control form-control-sm" id="lsnnAppPhotoUrl"
+                <input type="text" class="form-control form-control-sm" id="lsnnAppPhotoUrl"
                   data-lsnn-preview-target="#lsnnAppPhotoPreview"
+                  pattern="^(https?://|/).+"
                   placeholder="Or paste direct URL..." required />
               </div>
 
@@ -84,7 +85,7 @@
                     </select>
                   </div>
                   <div class="col-md-8">
-                    <label class="form-label fw-semibold">1.3 Place & Date of Birth *</label>
+                    <label class="form-label fw-semibold">1.3 Place &amp; Date of Birth *</label>
                     <input type="text" class="form-control" id="lsnnAppPobDob" placeholder="e.g. Los Santos, USA — 14 May 1998" required />
                   </div>
                   <div class="col-md-4">
@@ -119,24 +120,24 @@
                STEP 2: DIVISION, EXPERIENCE & OFFICIAL DOCUMENTS
                ============================================================= -->
           <div data-lsnn-step="2" class="d-none">
-            <h6 class="fw-bold text-uppercase mb-2" style="color: var(--lsnn-purple-mid);">Section 02 — Division & Role Preference</h6>
+            <h6 class="fw-bold text-uppercase mb-2" style="color: var(--lsnn-purple-mid);">Section 02 — Division &amp; Role Preference</h6>
             <div class="row g-3 mb-4">
               <div class="col-md-6">
-                <label class="form-label fw-semibold">2.1 Primary Division & Role *</label>
+                <label class="form-label fw-semibold">2.1 Primary Division &amp; Role *</label>
                 <select class="form-select" id="lsnnAppPrimaryRole" required>
-                  <option value="">-- Select Primary Division & Role --</option>
-                  <option value="Journalism & Editorial — News Reporter & Feature Columnist">Journalism & Editorial — News Reporter & Feature Columnist</option>
-                  <option value="Broadcasting & Media Production — On-Air Host & Production Specialist">Broadcasting & Media Production — On-Air Host & Production Specialist</option>
-                  <option value="IT & Software Development — Systems Engineer & Web Developer">IT & Software Development — Systems Engineer & Web Developer</option>
+                  <option value="">-- Select Primary Division &amp; Role --</option>
+                  <option value="Journalism & Editorial — News Reporter & Feature Columnist">Journalism &amp; Editorial — News Reporter &amp; Feature Columnist</option>
+                  <option value="Broadcasting & Media Production — On-Air Host & Production Specialist">Broadcasting &amp; Media Production — On-Air Host &amp; Production Specialist</option>
+                  <option value="IT & Software Development — Systems Engineer & Web Developer">IT &amp; Software Development — Systems Engineer &amp; Web Developer</option>
                 </select>
               </div>
               <div class="col-md-6">
-                <label class="form-label fw-semibold">2.2 Secondary Division & Role (Optional)</label>
+                <label class="form-label fw-semibold">2.2 Secondary Division &amp; Role (Optional)</label>
                 <select class="form-select" id="lsnnAppSecondaryRole">
                   <option value="N/A">N/A (No Secondary Preference)</option>
-                  <option value="Journalism & Editorial — News Reporter & Feature Columnist">Journalism & Editorial — News Reporter & Feature Columnist</option>
-                  <option value="Broadcasting & Media Production — On-Air Host & Production Specialist">Broadcasting & Media Production — On-Air Host & Production Specialist</option>
-                  <option value="IT & Software Development — Systems Engineer & Web Developer">IT & Software Development — Systems Engineer & Web Developer</option>
+                  <option value="Journalism & Editorial — News Reporter & Feature Columnist">Journalism &amp; Editorial — News Reporter &amp; Feature Columnist</option>
+                  <option value="Broadcasting & Media Production — On-Air Host & Production Specialist">Broadcasting &amp; Media Production — On-Air Host &amp; Production Specialist</option>
+                  <option value="IT & Software Development — Systems Engineer & Web Developer">IT &amp; Software Development — Systems Engineer &amp; Web Developer</option>
                 </select>
               </div>
               <div class="col-md-6">
@@ -149,14 +150,14 @@
               </div>
             </div>
 
-            <h6 class="fw-bold text-uppercase mb-2" style="color: var(--lsnn-purple-mid);">Section 03 — Education, Experience & Skills</h6>
+            <h6 class="fw-bold text-uppercase mb-2" style="color: var(--lsnn-purple-mid);">Section 03 — Education, Experience &amp; Skills</h6>
             <div class="row g-3 mb-4">
               <div class="col-md-6">
-                <label class="form-label fw-semibold">3.1 Highest Education & Field of Study (Major) *</label>
+                <label class="form-label fw-semibold">3.1 Highest Education &amp; Field of Study (Major) *</label>
                 <input type="text" class="form-control" id="lsnnAppEducation" placeholder="e.g. Bachelor of Arts in Journalism" required />
               </div>
               <div class="col-md-6">
-                <label class="form-label fw-semibold">3.2 School / University & Graduation Year *</label>
+                <label class="form-label fw-semibold">3.2 School / University &amp; Graduation Year *</label>
                 <input type="text" class="form-control" id="lsnnAppSchoolYear" placeholder="e.g. University of San Andreas, Los Santos — 2021" required />
               </div>
               <div class="col-md-6">
@@ -168,7 +169,7 @@
                 <input type="text" class="form-control" id="lsnnAppLeavingReason" placeholder="Reason for leaving, or N/A" />
               </div>
               <div class="col-md-6">
-                <label class="form-label fw-semibold">3.5 Relevant Technical, Editorial, or Special Skills & Licenses *</label>
+                <label class="form-label fw-semibold">3.5 Relevant Technical, Editorial, or Special Skills &amp; Licenses *</label>
                 <input type="text" class="form-control" id="lsnnAppSkills" placeholder="e.g. News Writing, Live Hosting, Video Editing, Pilot License" required />
               </div>
               <div class="col-md-6">
@@ -177,12 +178,12 @@
               </div>
             </div>
 
-            <h6 class="fw-bold text-uppercase mb-2" style="color: var(--lsnn-purple-mid);">Section 05 — Official Documents & Background Check</h6>
+            <h6 class="fw-bold text-uppercase mb-2" style="color: var(--lsnn-purple-mid);">Section 05 — Official Documents &amp; Background Check</h6>
             <div class="row g-3">
               <div class="col-md-4">
                 <label class="form-label fw-semibold">5.1 State Identification Card *</label>
                 <div class="input-group">
-                  <input type="url" class="form-control" id="lsnnAppIdCardUrl" placeholder="https://..." required />
+                  <input type="text" class="form-control" id="lsnnAppIdCardUrl" pattern="^(https?://|/).+" placeholder="https://... or upload" required />
                   <label class="btn btn-outline-secondary mb-0" style="cursor:pointer;">
                     <i class="fa fa-upload"></i>
                     <input type="file" accept="image/*" data-lsnn-upload-target="#lsnnAppIdCardUrl" hidden />
@@ -192,7 +193,7 @@
               <div class="col-md-4">
                 <label class="form-label fw-semibold">5.2 State Driver's License *</label>
                 <div class="input-group">
-                  <input type="url" class="form-control" id="lsnnAppDriverUrl" placeholder="https://..." required />
+                  <input type="text" class="form-control" id="lsnnAppDriverUrl" pattern="^(https?://|/).+" placeholder="https://... or upload" required />
                   <label class="btn btn-outline-secondary mb-0" style="cursor:pointer;">
                     <i class="fa fa-upload"></i>
                     <input type="file" accept="image/*" data-lsnn-upload-target="#lsnnAppDriverUrl" hidden />
@@ -274,7 +275,7 @@
                 <input type="text" class="form-control" id="lsnnAppUcpName" required />
               </div>
               <div class="col-md-4">
-                <label class="form-label fw-semibold">6.2 Nama & Level Karakter Utama *</label>
+                <label class="form-label fw-semibold">6.2 Nama &amp; Level Karakter Utama *</label>
                 <input type="text" class="form-control" id="lsnnAppMainChar" placeholder="Firstname_Lastname — Level X" required />
               </div>
               <div class="col-md-4">
@@ -285,21 +286,21 @@
                 </select>
               </div>
               <div class="col-md-4">
-                <label class="form-label fw-semibold">6.4 Karakter utama (Main) & lulus RP-Quiz? *</label>
+                <label class="form-label fw-semibold">6.4 Karakter utama (Main) &amp; lulus RP-Quiz? *</label>
                 <select class="form-select" id="lsnnAppMainQuiz" required>
                   <option value="Ya">Ya</option>
                   <option value="Tidak">Tidak</option>
                 </select>
               </div>
               <div class="col-md-4">
-                <label class="form-label fw-semibold">6.5 Bergabung Discord & punya WhatsApp aktif? *</label>
+                <label class="form-label fw-semibold">6.5 Bergabung Discord &amp; punya WhatsApp aktif? *</label>
                 <select class="form-select" id="lsnnAppDiscordWa" required>
                   <option value="Ya">Ya</option>
                   <option value="Tidak">Tidak</option>
                 </select>
               </div>
               <div class="col-md-4">
-                <label class="form-label fw-semibold">6.6 Terinstal TeamSpeak 3 & mic jernih? *</label>
+                <label class="form-label fw-semibold">6.6 Terinstal TeamSpeak 3 &amp; mic jernih? *</label>
                 <select class="form-select" id="lsnnAppTs3Mic" required>
                   <option value="Ya">Ya</option>
                   <option value="Tidak">Tidak</option>
@@ -310,7 +311,7 @@
                 <input type="text" class="form-control" id="lsnnAppPastFaction" value="Tidak Pernah" placeholder="Tidak Pernah / Nama Faksi — Tgl Keluar" required />
               </div>
               <div class="col-md-4">
-                <label class="form-label fw-semibold">6.8 Sudah cooldown 1 bulan & no double faction? *</label>
+                <label class="form-label fw-semibold">6.8 Sudah cooldown 1 bulan &amp; no double faction? *</label>
                 <select class="form-select" id="lsnnAppCooldown" required>
                   <option value="Ya">Ya</option>
                   <option value="Tidak">Tidak</option>
@@ -326,7 +327,7 @@
               <div class="col-md-4">
                 <label class="form-label fw-semibold">6.10 Screenshot /stats (Unedited) *</label>
                 <div class="input-group">
-                  <input type="url" class="form-control" id="lsnnAppStatsUrl" placeholder="https://..." required />
+                  <input type="text" class="form-control" id="lsnnAppStatsUrl" pattern="^(https?://|/).+" placeholder="https://... or upload" required />
                   <label class="btn btn-outline-secondary mb-0" style="cursor:pointer;">
                     <i class="fa fa-upload"></i>
                     <input type="file" accept="image/*" data-lsnn-upload-target="#lsnnAppStatsUrl" hidden />
@@ -336,7 +337,7 @@
               <div class="col-md-4">
                 <label class="form-label fw-semibold">6.11 Screenshot /mywarns (Unedited) *</label>
                 <div class="input-group">
-                  <input type="url" class="form-control" id="lsnnAppWarnsUrl" placeholder="https://..." required />
+                  <input type="text" class="form-control" id="lsnnAppWarnsUrl" pattern="^(https?://|/).+" placeholder="https://... or upload" required />
                   <label class="btn btn-outline-secondary mb-0" style="cursor:pointer;">
                     <i class="fa fa-upload"></i>
                     <input type="file" accept="image/*" data-lsnn-upload-target="#lsnnAppWarnsUrl" hidden />
@@ -346,7 +347,7 @@
               <div class="col-md-4">
                 <label class="form-label fw-semibold">6.12 Screenshot Forum Association UCP *</label>
                 <div class="input-group">
-                  <input type="url" class="form-control" id="lsnnAppForumAssocUrl" placeholder="https://..." required />
+                  <input type="text" class="form-control" id="lsnnAppForumAssocUrl" pattern="^(https?://|/).+" placeholder="https://... or upload" required />
                   <label class="btn btn-outline-secondary mb-0" style="cursor:pointer;">
                     <i class="fa fa-upload"></i>
                     <input type="file" accept="image/*" data-lsnn-upload-target="#lsnnAppForumAssocUrl" hidden />
@@ -355,16 +356,11 @@
               </div>
             </div>
 
-            <div class="mb-2">
-              <label class="form-label fw-semibold d-flex justify-content-between align-items-center">
-                <span>07 Applicant Digital Signature *</span>
-                <button type="button" class="btn btn-sm btn-outline-secondary" id="lsnnClearAppSig">Clear</button>
-              </label>
-              <div class="lsnn-sig-pad-wrap">
-                <canvas id="lsnnAppSigCanvas"></canvas>
-              </div>
-              <small class="text-muted">Dengan menandatangani formulir ini, saya menyatakan seluruh data IC & OOC adalah benar dan siap didiskualifikasi apabila ditemukan pemalsuan atau plagiarisme.</small>
-            </div>
+            ${utils.renderSignatureField({
+              idPrefix: 'lsnnAppSig',
+              label: '07 Applicant Digital Signature *',
+              helpText: 'Dengan menandatangani formulir ini, saya menyatakan seluruh data IC & OOC adalah benar dan siap didiskualifikasi apabila ditemukan pemalsuan atau plagiarisme.'
+            })}
           </div>
         </form>
       </div>
@@ -391,7 +387,7 @@
     const modalEl = modalCtrl.el;
     const formEl = document.getElementById('lsnnRecruitmentForm');
     const draft = utils.createDraftManager(draftKey, formEl);
-    const sigPad = utils.initSignaturePad('lsnnAppSigCanvas', 'lsnnClearAppSig');
+    const sigField = utils.initSignatureField('lsnnAppSig');
 
     let currentStep = 1;
     const totalSteps = 4;
@@ -437,23 +433,19 @@
     modalEl.querySelectorAll('[data-step-target]').forEach(pill => {
       pill.addEventListener('click', () => {
         const target = Number(pill.dataset.stepTarget);
-        if (target <= currentStep) {
-          goToStep(target);
-        } else if (target === currentStep + 1) {
+        if (target <= currentStep || target === currentStep + 1) {
           goToStep(target);
         }
       });
     });
 
-    // Live preview saat URL photo 3:4 ditempel manual
     const photoInput = document.getElementById('lsnnAppPhotoUrl');
     const photoPreview = document.getElementById('lsnnAppPhotoPreview');
     photoInput.addEventListener('input', () => {
       const val = photoInput.value.trim();
-      photoPreview.src = /^https?:\/\//i.test(val) ? val : config.assets.photoFallback;
+      photoPreview.src = /^(https?:\/\/|\/)/i.test(val) ? val : config.assets.photoFallback;
     });
 
-    // Live character counter untuk 5 pertanyaan esai
     ['lsnnAppQ1', 'lsnnAppQ2', 'lsnnAppQ3', 'lsnnAppQ4', 'lsnnAppQ5'].forEach(id => {
       const ta = document.getElementById(id);
       const counter = modalEl.querySelector(`[data-lsnn-charcount="${id}"]`);
@@ -463,7 +455,6 @@
       sync();
     });
 
-    // Submit Application
     document.getElementById('lsnnRecSubmitBtn').addEventListener('click', async () => {
       if (!validateStep(4)) return;
 
@@ -472,11 +463,7 @@
       submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Submitting...';
 
       try {
-        let signatureUrl = config.assets.sigFallback;
-        if (sigPad && !sigPad.isEmpty()) {
-          const blob = await sigPad.toBlob();
-          signatureUrl = await utils.uploadFileToNodeBB(blob, `sig-applicant-${Date.now()}.png`);
-        }
+        const signatureUrl = await sigField.getSignatureUrl('sig-applicant');
 
         const fullName = document.getElementById('lsnnAppFullName').value.trim();
         const topicContent = templates.recruitmentApplication({
@@ -564,7 +551,7 @@
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title fw-bold">HRD Application Evaluation & Status Notice</h5>
+        <h5 class="modal-title fw-bold">HRD Application Evaluation &amp; Status Notice</h5>
         <button type="button" class="btn-close" data-lsnn-close aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -585,7 +572,7 @@
             </div>
             <div class="col-12">
               <label class="form-label fw-semibold d-flex justify-content-between">
-                <span>HRD Remarks & Instructions *</span>
+                <span>HRD Remarks &amp; Instructions *</span>
                 <button type="button" class="btn btn-sm btn-link p-0 text-decoration-none" id="lsnnFillPresetRemark">Use Default Template Text</button>
               </label>
               <textarea class="form-control" id="lsnnHrdRemarks" rows="4" required>${escapeHtml(PRESET_REMARKS['ACCEPTED TO INTERVIEW'])}</textarea>
@@ -596,15 +583,11 @@
             </div>
           </div>
 
-          <div class="mb-2">
-            <label class="form-label fw-semibold d-flex justify-content-between align-items-center">
-              <span>HRD Digital Signature *</span>
-              <button type="button" class="btn btn-sm btn-outline-secondary" id="lsnnClearHrdSig">Clear</button>
-            </label>
-            <div class="lsnn-sig-pad-wrap">
-              <canvas id="lsnnHrdSigCanvas"></canvas>
-            </div>
-          </div>
+          ${utils.renderSignatureField({
+            idPrefix: 'lsnnHrdSig',
+            label: 'HRD Digital Signature *',
+            helpText: 'Gambar tanda tangan di kanvas atau unggah gambar tanda tangan Anda.'
+          })}
         </form>
       </div>
       <div class="modal-footer">
@@ -618,7 +601,7 @@
 </div>`;
 
     const modalCtrl = utils.openModal(modalHtml, 'lsnnHrdEvalModal');
-    const sigPad = utils.initSignaturePad('lsnnHrdSigCanvas', 'lsnnClearHrdSig');
+    const sigField = utils.initSignatureField('lsnnHrdSig');
 
     const statusEl = document.getElementById('lsnnHrdStatus');
     const remarksEl = document.getElementById('lsnnHrdRemarks');
@@ -644,11 +627,7 @@
       submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Posting...';
 
       try {
-        let signatureUrl = config.assets.sigFallback;
-        if (sigPad && !sigPad.isEmpty()) {
-          const blob = await sigPad.toBlob();
-          signatureUrl = await utils.uploadFileToNodeBB(blob, `sig-hrd-${Date.now()}.png`);
-        }
+        const signatureUrl = await sigField.getSignatureUrl('sig-hrd');
 
         const content = templates.hrdDecision({
           applicantName: document.getElementById('lsnnHrdApplicantName').value.trim(),
@@ -720,15 +699,11 @@
             </div>
           </div>
 
-          <div class="mb-2">
-            <label class="form-label fw-semibold d-flex justify-content-between align-items-center">
-              <span>Candidate Digital Signature *</span>
-              <button type="button" class="btn btn-sm btn-outline-secondary" id="lsnnClearBookSig">Clear</button>
-            </label>
-            <div class="lsnn-sig-pad-wrap">
-              <canvas id="lsnnBookSigCanvas"></canvas>
-            </div>
-          </div>
+          ${utils.renderSignatureField({
+            idPrefix: 'lsnnBookSig',
+            label: 'Candidate Digital Signature *',
+            helpText: 'Gambar tanda tangan di kanvas atau unggah gambar tanda tangan Anda.'
+          })}
         </form>
       </div>
       <div class="modal-footer">
@@ -742,7 +717,7 @@
 </div>`;
 
     const modalCtrl = utils.openModal(modalHtml, 'lsnnBookingModal');
-    const sigPad = utils.initSignaturePad('lsnnBookSigCanvas', 'lsnnClearBookSig');
+    const sigField = utils.initSignatureField('lsnnBookSig');
 
     document.getElementById('lsnnSubmitBookBtn').addEventListener('click', async () => {
       const form = document.getElementById('lsnnBookingForm');
@@ -753,11 +728,7 @@
       submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Booking...';
 
       try {
-        let signatureUrl = config.assets.sigFallback;
-        if (sigPad && !sigPad.isEmpty()) {
-          const blob = await sigPad.toBlob();
-          signatureUrl = await utils.uploadFileToNodeBB(blob, `sig-booking-${Date.now()}.png`);
-        }
+        const signatureUrl = await sigField.getSignatureUrl('sig-booking');
 
         const content = templates.interviewBooking({
           candidateName: document.getElementById('lsnnBookName').value.trim(),
@@ -803,7 +774,6 @@
     const isTopicPage = Boolean(ajaxify.data.template?.topic || /^\/topic\//.test(path));
     const isCategoryPage = Boolean(ajaxify.data.template?.category || /^\/category\//.test(path));
 
-    // 1. Tombol Form Lamaran -> Muncul di Category #12 & Topic #30 (Guidelines)
     if ((isCategoryPage && isRecruitmentCat) || isGuidelinesTopic) {
       if (window.app?.user?.uid) {
         utils.injectButtonOnce({
@@ -815,11 +785,9 @@
       }
     }
 
-    // 2. Di dalam Topic Lamaran Pelamar (Category #12, bukan Topic #30)
     if (isTopicPage && isRecruitmentCat && !isGuidelinesTopic && window.app?.user?.uid) {
       const topicTitle = ajaxify.data.titleRaw || ajaxify.data.title;
 
-      // Tombol Booking Interview khusus pemilik thread lamaran
       if (Number(ajaxify.data.uid) === Number(app.user.uid)) {
         utils.injectButtonOnce({
           btnId: 'lsnnOpenBookInterviewBtn',
@@ -829,7 +797,6 @@
         });
       }
 
-      // Tombol HRD Evaluation khusus staf grup LSNN / HRD
       const isStaff = await utils.checkUserInGroups(recCfg.staffGroupSlugs);
       if (isStaff) {
         utils.injectButtonOnce({
