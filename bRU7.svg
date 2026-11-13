@@ -1,0 +1,70 @@
+<svg width="530.4mm" height="530.4mm" viewBox="0 0 1000 1000" id="lsnn_prm_logo" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Reusable Network Node -->
+    <g id="network-node">
+      <circle cx="0" cy="0" r="22" fill="#dfb152" />
+      <circle cx="0" cy="0" r="9" fill="#14253e" />
+    </g>
+  </defs>
+
+  <!-- Central Emblem Group (Flush Top at y=0) -->
+  <g id="emblem-group">
+    <!-- Outer Institutional Orbit Arc -->
+    <path d="M 837.52,199.09 A 398,398 0 1,0 795.77,676.31" fill="none" stroke="#14253e" stroke-width="24" stroke-linecap="round" />
+
+    <!-- Inner Gold Communication Orbit Arc -->
+    <path d="M 763.07,173.13 A 354,354 0 1,0 717.94,688.96" fill="none" stroke="#dfb152" stroke-width="10" stroke-linecap="round" />
+
+    <!-- Strategic Communication Megaphone and PR Broadcast Waves -->
+    <g id="pr-megaphone-group" transform="translate(430 415) rotate(-20)">
+      <!-- Ergonomic Handle -->
+      <path d="M -132,42 L -152,148 A 21,21 0 0,0 -111,157 L -90,46 Z" fill="#14253e" />
+      <!-- Handle Gold Accent Line -->
+      <line x1="-118" y1="68" x2="-131" y2="134" stroke="#dfb152" stroke-width="6" stroke-linecap="round" />
+
+      <!-- Rear Acoustic Cap -->
+      <rect x="-196" y="-44" width="38" height="88" rx="19" fill="#14253e" />
+
+      <!-- Main Throat / Body -->
+      <path d="M -150,-46 L -54,-62 L -54,62 L -150,46 Z" fill="#14253e" />
+
+      <!-- Flared Gold Horn Cone -->
+      <path d="M -42,-65 Q 50,-92 136,-158 L 136,158 Q 50,92 -42,65 Z" fill="#dfb152" />
+
+      <!-- Inner Horn Geometric Accent Line -->
+      <path d="M -22,-42 Q 48,-64 114,-116" fill="none" stroke="#14253e" stroke-width="7.5" stroke-linecap="round" />
+
+      <!-- Front Bell Rim -->
+      <rect x="134" y="-166" width="26" height="332" rx="13" fill="#dfb152" />
+      <rect x="143" y="-142" width="8" height="284" rx="4" fill="#14253e" />
+
+      <!-- Radiating PR Signal Waves -->
+      <path d="M 202.19,-57.97 A 78,78 0 0,1 202.19,57.97" fill="none" stroke="#dfb152" stroke-width="15" stroke-linecap="round" />
+      <path d="M 234.96,-108.75 A 138,138 0 0,1 234.96,108.75" fill="none" stroke="#14253e" stroke-width="15" stroke-linecap="round" />
+
+      <!-- Stakeholder and Audience Network Nodes -->
+      <use href="#network-node" x="292" y="-134" />
+      <circle cx="332" cy="0" r="24" fill="#14253e" />
+      <circle cx="332" cy="0" r="10" fill="#dfb152" />
+      <use href="#network-node" x="292" y="134" />
+    </g>
+
+    <!-- Marketing Growth Bars and Upward Trajectory Arrow -->
+    <g id="marketing-growth-group">
+      <!-- Rising 3-Bar Growth Chart -->
+      <rect x="464" y="636" width="34" height="64" rx="8" fill="#dfb152" />
+      <rect x="516" y="602" width="34" height="98" rx="8" fill="#14253e" />
+      <rect x="568" y="566" width="34" height="134" rx="8" fill="#dfb152" />
+
+      <!-- Upward Trajectory Trend Arrow -->
+      <path d="M 454,616 L 646,536" fill="none" stroke="#14253e" stroke-width="14" stroke-linecap="round" />
+      <path d="M 614,524 L 650,534 L 632,567" fill="none" stroke="#14253e" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+
+  <!-- Full-Width Division Typography -->
+  <g id="typography-group" text-anchor="middle" font-family="&#39;Plus Jakarta Sans&#39;, &#39;Outfit&#39;, &#39;Inter&#39;, &#39;Montserrat&#39;, &#39;Segoe UI&#39;, sans-serif">
+    <text x="500" y="918" fill="#dfb152" font-size="84" font-weight="800">PUBLIC RELATION</text>
+    <text x="500" y="999" fill="#14253e" font-size="56" font-weight="700">MARKETING</text>
+  </g>
+</svg>
