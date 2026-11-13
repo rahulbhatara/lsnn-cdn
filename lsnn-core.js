@@ -13,7 +13,7 @@
       staffGroupSlugs: ['lsnn']
     },
     recruitment: {
-      categoryIds: [], // Isi Category ID Recruitment via LSNN_CUSTOM_CONFIG
+      categoryIds: [12],
       guidelinesTopicId: 30,
       formatTopicId: null,
       staffGroupSlugs: ['lsnn']
@@ -136,8 +136,20 @@
 
     if (!res.ok) throw new Error('Gagal mengunggah file ke server.');
     const json = await res.json();
-    const uploaded = Array.isArray(json) ? json[0] : (json.response && json.response[0]);
-    if (!uploaded || !uploaded.url) throw new Error('URL upload tidak ditemukan.');
+
+    const uploaded =
+      (Array.isArray(json) && json[0]) ||
+      (Array.isArray(json?.response) && json.response[0]) ||
+      (Array.isArray(json?.response?.images) && json.response.images[0]) ||
+      (Array.isArray(json?.images) && json.images[0]) ||
+      (json?.response?.url ? json.response : null) ||
+      (json?.url ? json : null);
+
+    if (!uploaded || !uploaded.url) {
+      console.error('[LSNN Upload] Unexpected response format:', json);
+      throw new Error('URL upload tidak ditemukan.');
+    }
+
     return uploaded.url;
   }
 
