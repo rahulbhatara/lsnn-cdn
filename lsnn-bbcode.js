@@ -27,19 +27,19 @@
       .replace(/<pre\b[^>]*>[\s\S]*?<\/pre>/gi, (m) => holdBlock(m))
       .replace(/<code\b[^>]*>[\s\S]*?<\/code>/gi, (m) => holdBlock(m));
 
-    // 2. Tangani tag [code]...[/code] sebelum pemrosesan lainnya
+    // 2. Tangani tag [code]...[/code]
     html = html.replace(/\[code\]([\s\S]*?)\[\/code\]/gi, (_, code) => {
       return holdBlock(`<pre><code>${code.trim()}</code></pre>`);
     });
 
-    // 3. Bersihkan auto-link <a href> dari Markdown di dalam tag BBCode URL/Media
+    // 3. Bersihkan auto-link Markdown di dalam tag BBCode URL/Media
     html = html
       .replace(/\[url=([^\]]+)\]/gi, (_, u) => `[url=${stripAutoLinks(u)}]`)
       .replace(/\[(url|img|email|youtube)\]([\s\S]*?)\[\/\1\]/gi, (_, tag, inner) => {
         return `[${tag}]${stripAutoLinks(inner)}[/${tag}]`;
       });
 
-    // 4. Amankan seluruh tag HTML existing (termasuk output lsnn-templates.js)
+    // 4. Amankan tag HTML existing (output lsnn-templates.js)
     const heldTags = [];
     html = html.replace(/<[^>]+>/g, (tag) => {
       const token = `___LSNN_BB_TAG_${heldTags.length}___`;
@@ -47,7 +47,12 @@
       return token;
     });
 
-    // 5. Pemformatan teks dasar phpBB
+    // 5. Kontainer [box] (max-width: 940px) & garis pemisah [hr]
+    html = html
+      .replace(/\[box\]([\s\S]*?)\[\/box\]/gi, '<div class="lsnn-bbcode-box">$1</div>')
+      .replace(/\[hr\]/gi, '<hr class="lsnn-bbcode-hr" />');
+
+    // 6. Pemformatan teks dasar phpBB
     html = html
       .replace(/\[b\]([\s\S]*?)\[\/b\]/gi, '<strong>$1</strong>')
       .replace(/\[i\]([\s\S]*?)\[\/i\]/gi, '<em>$1</em>')
@@ -55,7 +60,7 @@
       .replace(/\[s\]([\s\S]*?)\[\/s\]/gi, '<del>$1</del>')
       .replace(/\[center\]([\s\S]*?)\[\/center\]/gi, '<div style="text-align:center;">$1</div>');
 
-    // 6. Warna & Ukuran persentase ala phpBB ([size=150])
+    // 7. Warna & Ukuran persentase ala phpBB ([size=150])
     html = html.replace(/\[color=([#a-zA-Z0-9(),.\s%-]+)\]([\s\S]*?)\[\/color\]/gi, (_, color, text) => {
       const safeColor = color.replace(/[^#a-zA-Z0-9(),.\s%-]/g, '');
       return `<span style="color:${safeColor};">${text}</span>`;
@@ -66,7 +71,7 @@
       return `<span style="font-size:${val}%;">${text}</span>`;
     });
 
-    // 7. Nested Quote ([quote="Nama"] & [quote])
+    // 8. Nested Quote ([quote="Nama"] & [quote])
     let prev;
     do {
       prev = html;
@@ -77,14 +82,14 @@
           '<blockquote class="lsnn-bbcode-quote"><div>$1</div></blockquote>');
     } while (html !== prev);
 
-    // 8. Spoiler ([spoiler=Judul] & [spoiler])
+    // 9. Spoiler ([spoiler=Judul] & [spoiler])
     html = html
       .replace(/\[spoiler=(?:"|&quot;)?([^\]"&]+)(?:"|&quot;)?\]([\s\S]*?)\[\/spoiler\]/gi,
         '<details class="lsnn-bbcode-spoiler"><summary>$1</summary><div class="lsnn-bbcode-spoiler-body">$2</div></details>')
       .replace(/\[spoiler\]([\s\S]*?)\[\/spoiler\]/gi,
         '<details class="lsnn-bbcode-spoiler"><summary>Spoiler</summary><div class="lsnn-bbcode-spoiler-body">$1</div></details>');
 
-    // 9. URL, Email, Gambar & YouTube
+    // 10. URL, Email, Gambar & YouTube
     html = html
       .replace(/\[url=([^\]]+)\]([\s\S]*?)\[\/url\]/gi, (_, url, label) => {
         return `<a href="${sanitizeUrl(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
@@ -106,15 +111,15 @@
         return `<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:0.75rem 0;"><iframe src="https://www.youtube.com/embed/${match[1]}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe></div>`;
       });
 
-    // 10. Kembalikan tag HTML terlebih dahulu agar tag <br> di dalam [list] terbaca normal
+    // 11. Kembalikan tag HTML existing
     heldTags.forEach((tag, i) => {
       html = html.replace(`___LSNN_BB_TAG_${i}___`, () => tag);
     });
 
-    // 11. List ([list], [list=1], [list=a])
+    // 12. List ([list], [list=1], [list=a]) - tahan terhadap auto-italic Markdown [*]
     html = html.replace(/\[list(?:=(1|a))?\]([\s\S]*?)\[\/list\]/gi, (_, type, inner) => {
       const items = inner
-        .split(/\[\*\]/i)
+        .split(/\[(?:\*|<em>|<\/em>)\]/i)
         .map((item) => item.replace(/^(?:<br\s*\/?>|\s)+|(?:<br\s*\/?>|\s)+$/gi, ''))
         .filter(Boolean)
         .map((item) => `<li>${item}</li>`)
@@ -125,7 +130,7 @@
       return `<ul>${items}</ul>`;
     });
 
-    // 12. Kembalikan blok <pre>/<code>
+    // 13. Kembalikan blok kode
     heldBlocks.forEach((content, i) => {
       html = html.replace(`___LSNN_BB_BLK_${i}___`, () => content);
     });
@@ -143,6 +148,7 @@
       const parsed = parseBBCode(original);
       if (parsed !== original) {
         el.innerHTML = parsed;
+        el.classList.add('lsnn-bbcode-post');
       }
     });
   }
