@@ -216,7 +216,7 @@
           </div>
 
           <!-- =============================================================
-               STEP 3: ASSESSMENT & MOTIVATION ESSAYS (4.1 - 4.5)
+               STEP 3: ASSESSMENT & MOTIVATION ESSAYS (4.1 - 4.2)
                ============================================================= -->
           <div data-lsnn-step="3" class="d-none">
             <div class="alert alert-light border small mb-3">
@@ -228,39 +228,15 @@
                 <span>4.1 What motivated you to apply for a career at the Los Santos News Network? *</span>
                 <small class="text-muted"><span data-lsnn-charcount="lsnnAppQ1">0</span> chars</small>
               </label>
-              <textarea class="form-control" id="lsnnAppQ1" rows="3" required></textarea>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label fw-semibold d-flex justify-content-between">
-                <span>4.2 What specific strengths or experience make you a strong fit for your chosen primary division? *</span>
-                <small class="text-muted"><span data-lsnn-charcount="lsnnAppQ2">0</span> chars</small>
-              </label>
-              <textarea class="form-control" id="lsnnAppQ2" rows="3" required></textarea>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label fw-semibold d-flex justify-content-between">
-                <span>4.3 How do you maintain neutrality and accuracy when covering sensitive or fast-moving public events? *</span>
-                <small class="text-muted"><span data-lsnn-charcount="lsnnAppQ3">0</span> chars</small>
-              </label>
-              <textarea class="form-control" id="lsnnAppQ3" rows="3" required></textarea>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label fw-semibold d-flex justify-content-between">
-                <span>4.4 Describe a past situation where you successfully delivered a project under a tight deadline. *</span>
-                <small class="text-muted"><span data-lsnn-charcount="lsnnAppQ4">0</span> chars</small>
-              </label>
-              <textarea class="form-control" id="lsnnAppQ4" rows="3" required></textarea>
+              <textarea class="form-control" id="lsnnAppQ1" rows="4" required></textarea>
             </div>
 
             <div class="mb-1">
               <label class="form-label fw-semibold d-flex justify-content-between">
-                <span>4.5 What fresh ideas or improvements would you like to contribute to LSNN after completing the academy? *</span>
-                <small class="text-muted"><span data-lsnn-charcount="lsnnAppQ5">0</span> chars</small>
+                <span>4.2 What specific strengths or experience make you a strong fit for your chosen primary division? *</span>
+                <small class="text-muted"><span data-lsnn-charcount="lsnnAppQ2">0</span> chars</small>
               </label>
-              <textarea class="form-control" id="lsnnAppQ5" rows="3" required></textarea>
+              <textarea class="form-control" id="lsnnAppQ2" rows="4" required></textarea>
             </div>
           </div>
 
@@ -446,7 +422,7 @@
       photoPreview.src = /^(https?:\/\/|\/)/i.test(val) ? val : config.assets.photoFallback;
     });
 
-    ['lsnnAppQ1', 'lsnnAppQ2', 'lsnnAppQ3', 'lsnnAppQ4', 'lsnnAppQ5'].forEach(id => {
+    ['lsnnAppQ1', 'lsnnAppQ2'].forEach(id => {
       const ta = document.getElementById(id);
       const counter = modalEl.querySelector(`[data-lsnn-charcount="${id}"]`);
       if (!ta || !counter) return;
@@ -488,9 +464,6 @@
           portfolio: document.getElementById('lsnnAppPortfolio').value.trim() || 'N/A',
           q1Motivation: document.getElementById('lsnnAppQ1').value.trim(),
           q2Strengths: document.getElementById('lsnnAppQ2').value.trim(),
-          q3Neutrality: document.getElementById('lsnnAppQ3').value.trim(),
-          q4Deadline: document.getElementById('lsnnAppQ4').value.trim(),
-          q5Ideas: document.getElementById('lsnnAppQ5').value.trim(),
           idCardUrl: document.getElementById('lsnnAppIdCardUrl').value.trim(),
           driverLicenseUrl: document.getElementById('lsnnAppDriverUrl').value.trim(),
           criminalRecordUrl: document.getElementById('lsnnAppCrimRecordUrl').value.trim(),

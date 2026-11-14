@@ -1,0 +1,242 @@
+/* ==========================================================================
+   LSNN (Los Santos News Network) - UI Components, Buttons, Modals & Composer
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Buttons, Primary CTAs & Toolbar Actions
+   -------------------------------------------------------------------------- */
+#new_topic,
+[component="category/post"],
+[component="topic/reply"],
+[data-action="post"],
+.btn-primary,
+.btn.btn-sm.btn-primary.dropdown-toggle,
+.btn-primary.dropdown-toggle {
+  background: var(--lsnn-grad-main) !important;
+  color: var(--lsnn-white) !important;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(139, 20, 255, 0.25);
+  transition: transform var(--lsnn-transition-fast),
+              box-shadow var(--lsnn-transition-fast),
+              background var(--lsnn-transition-fast);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-group > .btn.btn-sm.btn-primary.dropdown-toggle,
+.btn-group > .btn-primary.dropdown-toggle {
+  margin-left: 2px !important;
+}
+
+.d-flex.col-md-5.col-12.align-content-stretch {
+  background-color: var(--lsnn-white);
+  border: 1px solid var(--lsnn-border-neutral);
+  padding: 6px 12px;
+  align-self: center;
+  align-items: center;
+}
+
+.topic-list-header #new_topic,
+.topic-list-header [component="category/post"],
+.category-tools #new_topic {
+  margin-left: 8px !important;
+}
+
+#new_topic:hover,
+[component="category/post"]:hover,
+[component="topic/reply"]:hover,
+[data-action="post"]:hover,
+.btn-primary:hover,
+.btn.btn-sm.btn-primary.dropdown-toggle:hover,
+.btn-primary.dropdown-toggle:hover {
+  background: var(--lsnn-grad-globe) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(139, 20, 255, 0.38);
+  color: #ffffff !important;
+}
+
+#new_topic:active,
+[component="category/post"]:active,
+[component="topic/reply"]:active,
+[data-action="post"]:active,
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(139, 20, 255, 0.25);
+}
+
+.btn-outline-secondary,
+.btn-light,
+.btn-default {
+  border-color: var(--lsnn-border-neutral) !important;
+  color: var(--lsnn-navy) !important;
+  background-color: var(--lsnn-white);
+}
+
+.btn-outline-secondary:hover,
+.btn-light:hover,
+.btn-default:hover {
+  border-color: var(--lsnn-purple-border) !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. Navigation Pills, Tabs & Unread Badges
+   -------------------------------------------------------------------------- */
+.nav-pills .nav-link {
+  color: var(--lsnn-navy);
+  font-weight: 500;
+  padding: 8px 16px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background: var(--lsnn-grad-main) !important;
+  color: var(--lsnn-white) !important;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(139, 20, 255, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   3. Pagination & Topic Timeline Navigator (Scroller)
+   -------------------------------------------------------------------------- */
+.pagination {
+  gap: 4px;
+}
+
+.pagination .page-link {
+  color: var(--lsnn-navy);
+  border: 1px solid var(--lsnn-border-neutral);
+  margin: 0;
+  background-color: var(--lsnn-white);
+  font-weight: 500;
+  padding: 8px 14px;
+  min-width: 40px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--lsnn-transition-fast);
+}
+
+.pagination .page-item.active .page-link {
+  background: var(--lsnn-grad-main) !important;
+  border-color: transparent !important;
+  color: var(--lsnn-white) !important;
+  box-shadow: 0 4px 12px rgba(139, 20, 255, 0.25);
+}
+
+[component="topic/navigator"] .pagination-block {
+  background: var(--lsnn-white) !important;
+  border: 1px solid var(--lsnn-border-neutral) !important;
+  box-shadow: 0 6px 20px rgba(28, 40, 61, 0.10) !important;
+  overflow: hidden;
+}
+
+[component="topic/navigator"] .pagination-block .progress-bar {
+  background: var(--lsnn-grad-main) !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Topic Tags, Badges & Status Indicators
+   -------------------------------------------------------------------------- */
+.tag-item {
+  background-color: var(--lsnn-purple-subtle) !important;
+  color: var(--lsnn-purple-end) !important;
+  border: 1px solid var(--lsnn-purple-border);
+  padding: 4px 10px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: all var(--lsnn-transition-fast);
+}
+
+.pinned-indicator,
+[component="topic/pinned"] {
+  color: var(--lsnn-purple-mid) !important;
+}
+
+.locked-indicator,
+[component="topic/locked"] {
+  color: var(--lsnn-navy-muted) !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. Dropdown Menus & Modal Dialogs
+   -------------------------------------------------------------------------- */
+.dropdown-menu {
+  background-color: var(--lsnn-white) !important;
+  border: 1px solid var(--lsnn-border-neutral) !important;
+  box-shadow: 0 10px 30px rgba(28, 40, 61, 0.12) !important;
+  padding: 8px !important;
+}
+
+.dropdown-item {
+  color: var(--lsnn-navy) !important;
+  padding: 8px 14px;
+  font-weight: 500;
+}
+
+.dropdown-divider {
+  border-top-color: var(--lsnn-border-neutral) !important;
+  margin: 6px 0;
+}
+
+.modal-content {
+  background-color: var(--lsnn-white) !important;
+  border: 1px solid var(--lsnn-border-neutral) !important;
+  box-shadow: 0 14px 40px rgba(28, 40, 61, 0.18) !important;
+}
+
+.modal-header,
+.modal-footer {
+  border-color: var(--lsnn-border-neutral) !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Composer (Kotak Penulisan) & Quick Reply
+   -------------------------------------------------------------------------- */
+.composer {
+  background-color: var(--lsnn-white) !important;
+  box-shadow: 0 -8px 30px rgba(28, 40, 61, 0.12) !important;
+}
+
+.composer .formatting-bar .btn {
+  color: var(--lsnn-navy);
+}
+
+.composer .write,
+.composer .preview {
+  border-color: var(--lsnn-border-neutral);
+}
+
+[component="topic/quickreply"] {
+  background-color: var(--lsnn-white) !important;
+  border: 1px solid var(--lsnn-border-neutral) !important;
+  padding: 16px !important;
+  box-shadow: var(--lsnn-card-shadow) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. Form Controls & Visible Focus States (Forum Content Only)
+   -------------------------------------------------------------------------- */
+.form-control,
+.form-select {
+  border: 1px solid var(--lsnn-border-neutral);
+  padding: 9px 14px;
+  color: var(--lsnn-navy);
+  background-color: var(--lsnn-white);
+  transition: border-color var(--lsnn-transition-fast), box-shadow var(--lsnn-transition-fast);
+}
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--lsnn-purple-mid) !important;
+  outline-offset: 2px !important;
+}

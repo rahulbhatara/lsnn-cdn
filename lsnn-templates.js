@@ -289,10 +289,7 @@ Review the available divisions and departmental roles in our <a href="${escapeHt
       ], { labelWidth: '44%' })),
       section('04', 'Assessment & Motivation Questions', essayBlocks([
         { num: '4.1', question: 'What motivated you to apply for a career at the Los Santos News Network?', answer: data.q1Motivation },
-        { num: '4.2', question: 'What specific strengths or experience make you a strong fit for your chosen primary division?', answer: data.q2Strengths },
-        { num: '4.3', question: 'How do you maintain neutrality and accuracy when covering sensitive or fast-moving public events?', answer: data.q3Neutrality },
-        { num: '4.4', question: 'Describe a past situation where you successfully delivered a project under a tight deadline.', answer: data.q4Deadline },
-        { num: '4.5', question: 'What fresh ideas or improvements would you like to contribute to LSNN after completing the academy?', answer: data.q5Ideas }
+        { num: '4.2', question: 'What specific strengths or experience make you a strong fit for your chosen primary division?', answer: data.q2Strengths }
       ])),
       section('05', 'Official Documents & Background Check', kvTable([
         { num: '5.1', label: 'State Identification Card', value: linkHtml(data.idCardUrl), rawHtml: true },

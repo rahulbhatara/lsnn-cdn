@@ -1,0 +1,273 @@
+/* ==========================================================================
+   LSNN (Los Santos News Network) - Post Content, Tables, Signature & BBCode
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Post Interactions, Blockquotes, Code & Voting
+   -------------------------------------------------------------------------- */
+[component="post/upvote"],
+[component="post/downvote"] {
+  transition: color var(--lsnn-transition-fast), transform var(--lsnn-transition-fast);
+  cursor: pointer;
+}
+
+[component="post/upvote"]:hover {
+  transform: translateY(-1px);
+}
+
+[component="post/downvote"]:hover {
+  color: var(--lsnn-navy-muted) !important;
+  transform: translateY(1px);
+}
+
+.upvoted [component="post/upvote"],
+.downvoted [component="post/downvote"] {
+  color: var(--lsnn-purple-mid) !important;
+}
+
+[component="post/vote-count"] {
+  font-weight: 700;
+  color: var(--lsnn-navy);
+}
+
+[component="post/content"] blockquote {
+  background-color: var(--lsnn-bg-light);
+  border-left: 4px solid var(--lsnn-purple-mid);
+  padding: 14px 20px;
+  margin: 1rem 0;
+  color: var(--lsnn-navy);
+  font-style: italic;
+}
+
+[component="post/content"] pre {
+  background-color: #121927 !important;
+  color: #e2e8f0 !important;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[component="post/content"] code {
+  padding: 2px 6px;
+  font-size: 0.88em;
+  background-color: var(--lsnn-purple-subtle);
+  color: var(--lsnn-purple-end);
+}
+
+[component="post/content"] pre code {
+  background-color: transparent !important;
+  color: inherit !important;
+  padding: 0;
+}
+
+[component="post/content"] table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.9rem 0 1.35rem 0;
+  font-size: 0.9rem;
+}
+
+[component="post/content"] th {
+  background-color: #111827;
+  color: #ffffff !important;
+  font-weight: 700;
+  padding: 9px 12px;
+  border: 1px solid #111827;
+  text-align: left;
+}
+
+[component="post/content"] td {
+  padding: 9px 12px;
+  border: 1px solid #d1d5db;
+  vertical-align: middle;
+}
+
+[component="post/content"] div[style*="background-color: #ffffff"] td {
+  color: #111827 !important;
+}
+
+[component="post/content"] tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+[component="post/content"] td:nth-child(2) strong {
+  color: #16a34a;
+}
+
+[component="post/content"] div[style*="background-color: #ffffff"] h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #111827 !important;
+  margin: 1.25rem 0 0.4rem 0;
+  border: none;
+  padding: 0;
+}
+
+[component="post/content"] div[style*="background-color: #ffffff"] hr {
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+  margin: 1.4rem 0;
+}
+
+[component="post/content"] div[style*="background-color: #ffffff"] blockquote {
+  background-color: #f8fafc;
+  border-left: 4px solid #991b1b;
+  color: #334155;
+  font-style: normal;
+  padding: 10px 14px;
+}
+
+[component="post/content"] div[style*="background-color: #ffffff"] blockquote a {
+  color: #991b1b;
+  font-weight: 700;
+}
+
+[component="post/content"] img[src*="logo_mid.svg"] {
+  max-width: 84px;
+  max-height: 84px;
+  object-fit: contain;
+}
+
+[data-bs-theme="dark"] [component="post/content"] table:not(div[style*="background-color: #ffffff"] table) th,
+body.dark [component="post/content"] table:not(div[style*="background-color: #ffffff"] table) th,
+html.dark [component="post/content"] table:not(div[style*="background-color: #ffffff"] table) th {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f8fafc !important;
+}
+
+[data-bs-theme="dark"] [component="post/content"] table:not(div[style*="background-color: #ffffff"] table) td,
+body.dark [component="post/content"] table:not(div[style*="background-color: #ffffff"] table) td,
+html.dark [component="post/content"] table:not(div[style*="background-color: #ffffff"] table) td {
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+[data-bs-theme="dark"] [component="post/content"] table:not(div[style*="background-color: #ffffff"] table) tbody tr:nth-child(even),
+body.dark [component="post/content"] table:not(div[style*="background-color: #ffffff"] table) tbody tr:nth-child(even),
+html.dark [component="post/content"] table:not(div[style*="background-color: #ffffff"] table) tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.post-tools a,
+[component="post/tools"] a {
+  color: var(--lsnn-navy-muted);
+  font-size: 0.88rem;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. LSNN Forum Signature Component (Max-Width 920px Standard)
+   -------------------------------------------------------------------------- */
+.lsnn-sig-wrapper {
+  max-width: 920px;
+  width: 100%;
+  margin: 12px auto 6px auto;
+  font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  line-height: 1.5;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(28, 40, 61, 0.06);
+}
+
+.lsnn-sig-main {
+  background-color: #f8fafc;
+  border: 1px solid #1c283d;
+  border-bottom: none;
+  padding: 14px 16px;
+}
+
+.lsnn-sig-footer-bar {
+  background-color: #1c283d;
+  color: #fefefe;
+  font-size: 12.5px;
+  border: 1px solid #1c283d;
+  border-top: none;
+}
+
+[data-bs-theme="dark"] .lsnn-sig-wrapper,
+body.dark .lsnn-sig-wrapper,
+html.dark .lsnn-sig-wrapper {
+  background-color: #172132;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #e5ecf6;
+}
+
+[data-bs-theme="dark"] .lsnn-sig-main,
+body.dark .lsnn-sig-main,
+html.dark .lsnn-sig-main {
+  background-color: #0d1523;
+  border-color: #334155;
+}
+
+/* --------------------------------------------------------------------------
+   3. LSNN BBCode Container, Typography, Quote Cite & Spoiler (Max-Width 940px)
+   -------------------------------------------------------------------------- */
+[component="post/content"].lsnn-bbcode-post,
+[component="composer"] .preview.lsnn-bbcode-post {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lsnn-bbcode-box {
+  max-width: 940px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  color: #1e293b;
+  padding: 16px;
+  border: 1px solid #cbd5e1;
+  box-sizing: border-box;
+  line-height: 1.6;
+  font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+}
+
+.lsnn-bbcode-box img,
+.lsnn-bbcode-post img {
+  max-width: 100%;
+  height: auto;
+}
+
+hr.lsnn-bbcode-hr {
+  border: 0;
+  border-top: 1px solid #cbd5e1;
+  margin: 14px 0;
+}
+
+[component="post/content"] blockquote.lsnn-bbcode-quote cite {
+  display: block;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--lsnn-purple-mid);
+  margin-bottom: 6px;
+}
+
+[component="post/content"] details.lsnn-bbcode-spoiler {
+  background-color: var(--lsnn-bg-light);
+  border: 1px solid var(--lsnn-border-neutral);
+  margin: 0.75rem 0;
+}
+
+[component="post/content"] details.lsnn-bbcode-spoiler summary {
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--lsnn-navy);
+  cursor: pointer;
+  user-select: none;
+}
+
+[component="post/content"] details.lsnn-bbcode-spoiler[open] summary {
+  border-bottom: 1px solid var(--lsnn-border-neutral);
+  color: var(--lsnn-purple-mid);
+}
+
+[component="post/content"] .lsnn-bbcode-spoiler-body {
+  padding: 12px 14px;
+  background-color: var(--lsnn-white);
+}

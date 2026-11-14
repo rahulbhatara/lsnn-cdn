@@ -1,0 +1,100 @@
+/* ==========================================================================
+   LSNN (Los Santos News Network) - Design Tokens & Global Base
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & CSS Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Purple Palette */
+  --lsnn-purple-mid: #8b14ff;
+  --lsnn-purple-end: #7900ff;
+  --lsnn-purple-subtle: #f3ecff;
+  --lsnn-purple-border: rgba(139, 20, 255, 0.22);
+
+  /* Neutral Base & Slate Navy Palette */
+  --lsnn-navy: #1c283d;
+  --lsnn-navy-muted: #5a6b87;
+  --lsnn-white: #fefefe;
+  --lsnn-bg-light: #f4f6f9;
+  --lsnn-border-neutral: rgba(28, 40, 61, 0.09);
+  --lsnn-border-hover: rgba(28, 40, 61, 0.18);
+
+  /* Gradients & Shadows */
+  --lsnn-grad-main: linear-gradient(90deg, #9e2eff 0%, #8b14ff 55%, #7900ff 100%);
+  --lsnn-grad-globe: linear-gradient(270deg, #7601ff 0%, #b73eff 100%);
+  --lsnn-card-shadow: 0 4px 16px rgba(28, 40, 61, 0.05);
+  --lsnn-hover-shadow-neutral: 0 8px 24px rgba(28, 40, 61, 0.10);
+
+  /* Motion Tokens */
+  --lsnn-transition-fast: 0.15s ease;
+  --lsnn-transition-smooth: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Mode Token Support (NodeBB Harmony / Persona Dark Mode) */
+[data-bs-theme="dark"],
+body.dark,
+html.dark {
+  --lsnn-navy: #e5ecf6;
+  --lsnn-navy-muted: #8b9db8;
+  --lsnn-white: #172132;
+  --lsnn-bg-light: #0d1523;
+  --lsnn-border-neutral: rgba(255, 255, 255, 0.08);
+  --lsnn-border-hover: rgba(255, 255, 255, 0.18);
+  --lsnn-purple-subtle: rgba(139, 20, 255, 0.18);
+  --lsnn-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --lsnn-hover-shadow-neutral: 0 8px 26px rgba(0, 0, 0, 0.55);
+}
+
+/* --------------------------------------------------------------------------
+   2. Global Resets, Typography & Selection Highlight
+   -------------------------------------------------------------------------- */
+body {
+  background-color: var(--lsnn-bg-light) !important;
+  background-image: none !important;
+  color: var(--lsnn-navy);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(139, 20, 255, 0.24);
+  color: var(--lsnn-navy);
+}
+
+/* --------------------------------------------------------------------------
+   3. Custom Scrollbar
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--lsnn-bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lsnn-navy-muted);
+  border: 2px solid var(--lsnn-bg-light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lsnn-navy);
+}
+
+/* --------------------------------------------------------------------------
+   4. Accessibility & Reduced Motion Support
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+}
