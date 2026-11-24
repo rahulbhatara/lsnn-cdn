@@ -1,0 +1,500 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 613" width="1000" height="613" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    
+    <linearGradient id="bgSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#070B1A" />
+      <stop offset="48%" stop-color="#0D1633" />
+      <stop offset="82%" stop-color="#1A1940" />
+      <stop offset="100%" stop-color="#090D1F" />
+    </linearGradient>
+
+    
+    <radialGradient id="glowSkyLeft" cx="20%" cy="48%" r="48%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.30" />
+      <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.09" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glowPinkRight" cx="80%" cy="46%" r="48%">
+      <stop offset="0%" stop-color="#FF4DA6" stop-opacity="0.30" />
+      <stop offset="50%" stop-color="#FF4DA6" stop-opacity="0.09" />
+      <stop offset="100%" stop-color="#FF4DA6" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glowCenterHero" cx="50%" cy="41%" r="36%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.14" />
+      <stop offset="35%" stop-color="#7DD3FC" stop-opacity="0.12" />
+      <stop offset="68%" stop-color="#FF66B5" stop-opacity="0.07" />
+      <stop offset="100%" stop-color="#0D1633" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="horizonGlow" cx="50%" cy="100%" r="65%">
+      <stop offset="0%" stop-color="#FF66B5" stop-opacity="0.36" />
+      <stop offset="45%" stop-color="#38BDF8" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#070B1A" stop-opacity="0" />
+    </radialGradient>
+
+    
+    <linearGradient id="beamSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7DD3FC" stop-opacity="0.22" />
+      <stop offset="65%" stop-color="#38BDF8" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="beamPink" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF80C0" stop-opacity="0.22" />
+      <stop offset="65%" stop-color="#FF4DA6" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#FF4DA6" stop-opacity="0" />
+    </linearGradient>
+
+    
+    <linearGradient id="neonTri" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FF4DA6" />
+    </linearGradient>
+
+    <linearGradient id="neonTriReverse" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF4DA6" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7DD3FC" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FF5CAD" />
+    </linearGradient>
+
+    
+    <linearGradient id="titleSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="38%" stop-color="#FFFFFF" />
+      <stop offset="48%" stop-color="#BAE6FD" />
+      <stop offset="52%" stop-color="#FFFFFF" />
+      <stop offset="62%" stop-color="#FFC2E2" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+      <animate attributeName="x1" values="-100%;100%;100%" dur="6s" repeatCount="indefinite" />
+      <animate attributeName="x2" values="0%;200%;200%" dur="6s" repeatCount="indefinite" />
+    </linearGradient>
+
+    
+    <linearGradient id="talkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7DD3FC" />
+      <stop offset="50%" stop-color="#FF77C8" />
+      <stop offset="100%" stop-color="#FF4DA6" />
+    </linearGradient>
+
+    
+    <linearGradient id="skylineBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#17244A" />
+      <stop offset="100%" stop-color="#0B1126" />
+    </linearGradient>
+
+    <linearGradient id="skylineFront" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0E1733" />
+      <stop offset="100%" stop-color="#060916" />
+    </linearGradient>
+
+    <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161F42" />
+      <stop offset="35%" stop-color="#0B1024" />
+      <stop offset="100%" stop-color="#050814" />
+    </linearGradient>
+
+    
+    <radialGradient id="bokehSky" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#7DD3FC" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="bokehPink" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#FF85C8" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#FF4DA6" stop-opacity="0" />
+    </radialGradient>
+
+    
+    <linearGradient id="railSweep" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0" />
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+
+    <clipPath id="stageClip">
+      <rect x="0" y="0" width="1000" height="613" />
+    </clipPath>
+  </defs>
+
+  <style>
+    .beam-left {
+      transform-origin: 140px -20px;
+      animation: swayLeft 14s ease-in-out infinite;
+    }
+    .beam-right {
+      transform-origin: 860px -20px;
+      animation: swayRight 16s ease-in-out infinite;
+    }
+    .beam-mid-l {
+      transform-origin: 360px -20px;
+      animation: swayRight 19s ease-in-out infinite;
+    }
+    .beam-mid-r {
+      transform-origin: 640px -20px;
+      animation: swayLeft 17s ease-in-out infinite;
+    }
+    @keyframes swayLeft {
+      0%, 100% { transform: rotate(-9deg); opacity: 0.72; }
+      50% { transform: rotate(11deg); opacity: 0.95; }
+    }
+    @keyframes swayRight {
+      0%, 100% { transform: rotate(10deg); opacity: 0.72; }
+      50% { transform: rotate(-10deg); opacity: 0.95; }
+    }
+
+    .pulse-soft {
+      animation: pulseSoft 5s ease-in-out infinite;
+    }
+    .pulse-slow {
+      animation: pulseSoft 8s ease-in-out infinite reverse;
+    }
+    @keyframes pulseSoft {
+      0%, 100% { opacity: 0.65; }
+      50% { opacity: 1; }
+    }
+
+    .twinkle-a { animation: twinkle 3.6s ease-in-out infinite; }
+    .twinkle-b { animation: twinkle 4.8s ease-in-out infinite 1.2s; }
+    .twinkle-c { animation: twinkle 5.5s ease-in-out infinite 2.4s; }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.95; }
+    }
+
+    .beacon {
+      animation: beaconBlink 2.2s ease-in-out infinite;
+    }
+    @keyframes beaconBlink {
+      0%, 100% { opacity: 0.25; }
+      45%, 55% { opacity: 1; }
+    }
+
+    .ring-spin {
+      transform-origin: 500px 245px;
+      animation: slowSpin 42s linear infinite;
+    }
+    .ring-spin-rev {
+      transform-origin: 500px 245px;
+      animation: slowSpinRev 58s linear infinite;
+    }
+    @keyframes slowSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes slowSpinRev {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    .float-1 { animation: floatUp 11s ease-in-out infinite; }
+    .float-2 { animation: floatUp 14s ease-in-out infinite 3s; }
+    .float-3 { animation: floatUp 12.5s ease-in-out infinite 6s; }
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(8px); opacity: 0.35; }
+      50% { transform: translateY(-14px); opacity: 0.85; }
+    }
+
+    .eq-bar-1 { transform-origin: center 368px; animation: eqBounce 1.8s ease-in-out infinite; }
+    .eq-bar-2 { transform-origin: center 368px; animation: eqBounce 1.4s ease-in-out infinite 0.3s; }
+    .eq-bar-3 { transform-origin: center 368px; animation: eqBounce 2.1s ease-in-out infinite 0.6s; }
+    .eq-bar-4 { transform-origin: center 368px; animation: eqBounce 1.6s ease-in-out infinite 0.2s; }
+    .eq-bar-5 { transform-origin: center 368px; animation: eqBounce 1.9s ease-in-out infinite 0.5s; }
+    @keyframes eqBounce {
+      0%, 100% { transform: scaleY(0.35); }
+      50% { transform: scaleY(1); }
+    }
+
+    .sweep-x {
+      animation: sweepX 7s linear infinite;
+    }
+    @keyframes sweepX {
+      0% { transform: translateX(-280px); }
+      100% { transform: translateX(1280px); }
+    }
+
+    .live-dot {
+      animation: livePulse 1.8s ease-in-out infinite;
+    }
+    @keyframes livePulse {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 1; }
+    }
+
+    .font-main {
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    }
+  </style>
+
+  <g clip-path="url(#stageClip)">
+    
+    <rect x="0" y="0" width="1000" height="613" fill="url(#bgSky)" />
+    <rect x="0" y="0" width="1000" height="613" fill="url(#glowSkyLeft)" class="pulse-soft" />
+    <rect x="0" y="0" width="1000" height="613" fill="url(#glowPinkRight)" class="pulse-slow" />
+    <rect x="0" y="0" width="1000" height="613" fill="url(#glowCenterHero)" />
+    <rect x="0" y="250" width="1000" height="270" fill="url(#horizonGlow)" />
+
+    
+    <g stroke="#7DD3FC" stroke-opacity="0.06" stroke-width="1">
+      <line x1="0" y1="95" x2="1000" y2="95" />
+      <line x1="0" y1="185" x2="1000" y2="185" />
+      <line x1="0" y1="275" x2="1000" y2="275" />
+      <line x1="0" y1="365" x2="1000" y2="365" />
+    </g>
+
+    
+    <g>
+      <polygon class="beam-left" points="110,-20 175,-20 450,530 165,530" fill="url(#beamSky)" />
+      <polygon class="beam-right" points="825,-20 890,-20 835,530 550,530" fill="url(#beamPink)" />
+      <polygon class="beam-mid-l" points="340,-20 385,-20 620,530 430,530" fill="url(#beamPink)" opacity="0.55" />
+      <polygon class="beam-mid-r" points="615,-20 660,-20 570,530 380,530" fill="url(#beamSky)" opacity="0.55" />
+    </g>
+
+    
+    <g fill="#FFFFFF">
+      <circle cx="72" cy="68" r="1.4" class="twinkle-a" />
+      <circle cx="148" cy="112" r="1.1" class="twinkle-b" />
+      <circle cx="215" cy="54" r="1.6" class="twinkle-c" />
+      <circle cx="292" cy="96" r="1.0" class="twinkle-a" />
+      <circle cx="364" cy="62" r="1.2" class="twinkle-b" />
+      <circle cx="642" cy="58" r="1.3" class="twinkle-c" />
+      <circle cx="718" cy="92" r="1.1" class="twinkle-a" />
+      <circle cx="795" cy="64" r="1.6" class="twinkle-b" />
+      <circle cx="874" cy="115" r="1.2" class="twinkle-c" />
+      <circle cx="934" cy="72" r="1.4" class="twinkle-a" />
+      <circle cx="118" cy="210" r="1.2" fill="#BAE6FD" class="twinkle-c" />
+      <circle cx="888" cy="204" r="1.2" fill="#FFC2E2" class="twinkle-b" />
+      <circle cx="195" cy="285" r="1.0" fill="#7DD3FC" class="twinkle-a" />
+      <circle cx="820" cy="278" r="1.1" fill="#FF85C8" class="twinkle-c" />
+    </g>
+
+    
+    <g transform="translate(868, 92)" opacity="0.88">
+      <circle cx="0" cy="0" r="34" fill="url(#bokehSky)" opacity="0.35" />
+      <path d="M 6,-16 A 17,17 0 1,0 16,10 A 13,13 0 1,1 6,-16 Z" fill="#FFFFFF" />
+    </g>
+
+    
+    <g>
+      <circle cx="155" cy="340" r="24" fill="url(#bokehSky)" class="float-1" />
+      <circle cx="245" cy="170" r="14" fill="url(#bokehPink)" class="float-2" />
+      <circle cx="765" cy="165" r="16" fill="url(#bokehSky)" class="float-3" />
+      <circle cx="845" cy="330" r="26" fill="url(#bokehPink)" class="float-1" />
+      <circle cx="310" cy="395" r="18" fill="url(#bokehSky)" class="float-2" />
+      <circle cx="690" cy="392" r="18" fill="url(#bokehPink)" class="float-3" />
+    </g>
+
+    
+    <g>
+      
+      <circle cx="500" cy="245" r="176" fill="none" stroke="url(#ringGrad)" stroke-width="1.2" stroke-opacity="0.28" stroke-dasharray="90 22 18 22" class="ring-spin" />
+      <circle cx="500" cy="245" r="154" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.16" stroke-dasharray="4 10" class="ring-spin-rev" />
+
+      
+      <path d="M 332,162 A 188,188 0 0,0 332,328" fill="none" stroke="#38BDF8" stroke-width="8" stroke-opacity="0.14" stroke-linecap="round" />
+      <path d="M 332,162 A 188,188 0 0,0 332,328" fill="none" stroke="#7DD3FC" stroke-width="2.2" stroke-opacity="0.88" stroke-linecap="round" />
+
+      <path d="M 668,162 A 188,188 0 0,1 668,328" fill="none" stroke="#FF4DA6" stroke-width="8" stroke-opacity="0.14" stroke-linecap="round" />
+      <path d="M 668,162 A 188,188 0 0,1 668,328" fill="none" stroke="#FF80C0" stroke-width="2.2" stroke-opacity="0.88" stroke-linecap="round" />
+
+      
+      <line x1="0" y1="245" x2="295" y2="245" stroke="url(#neonTri)" stroke-width="1.2" stroke-opacity="0.32" />
+      <line x1="705" y1="245" x2="1000" y2="245" stroke="url(#neonTriReverse)" stroke-width="1.2" stroke-opacity="0.32" />
+      <circle cx="295" cy="245" r="3" fill="#7DD3FC" />
+      <circle cx="705" cy="245" r="3" fill="#FF66B5" />
+    </g>
+
+    
+    
+    <path d="M0,468 L35,468 L35,436 L68,436 L68,452 L98,452 L98,395 L132,395 L132,445 L168,445 L168,412 L212,412 L212,442 L255,442 L255,420 L292,420 L292,456 L360,456 L360,442 L412,442 L412,462 L588,462 L588,444 L640,444 L640,455 L706,455 L706,418 L748,418 L748,444 L792,444 L792,402 L836,402 L836,448 L878,448 L878,424 L922,424 L922,452 L960,452 L960,468 L1000,468 L1000,520 L0,520 Z" fill="url(#skylineBack)" opacity="0.88" />
+
+    
+    <path d="M0,478 L22,478 L22,448 L56,448 L56,466 L82,466 L82,418 L118,418 L118,458 L146,458 L146,374 L152,374 L152,354 L162,354 L162,342 L176,342 L176,354 L186,354 L186,374 L192,374 L192,458 L224,458 L224,428 L266,428 L266,464 L305,464 L305,448 L345,448 L345,472 L428,472 L428,460 L468,460 L468,476 L532,476 L532,460 L572,460 L572,472 L655,472 L655,444 L696,444 L696,464 L734,464 L734,424 L778,424 L778,458 L810,458 L810,382 L822,370 L846,370 L858,382 L858,456 L888,456 L888,434 L930,434 L930,466 L964,466 L964,478 L1000,478 L1000,520 L0,520 Z" fill="url(#skylineFront)" />
+
+    
+    <g fill="none" stroke-width="1.5">
+      <polyline points="146,374 152,374 152,354 162,354 162,342 176,342 176,354 186,354 186,374 192,374" stroke="#7DD3FC" stroke-opacity="0.75" />
+      <polyline points="810,382 822,370 846,370 858,382" stroke="#FF77C8" stroke-opacity="0.75" />
+      <line x1="82" y1="418" x2="118" y2="418" stroke="#FFFFFF" stroke-opacity="0.45" />
+      <line x1="734" y1="424" x2="778" y2="424" stroke="#FFFFFF" stroke-opacity="0.45" />
+    </g>
+
+    
+    <g>
+      <line x1="169" y1="342" x2="169" y2="326" stroke="#7DD3FC" stroke-width="1.5" />
+      <circle cx="169" cy="325" r="7" fill="url(#bokehPink)" class="beacon" />
+      <circle cx="169" cy="325" r="2.4" fill="#FF4DA6" class="beacon" />
+
+      <line x1="834" y1="370" x2="834" y2="352" stroke="#FF80C0" stroke-width="1.5" />
+      <circle cx="834" cy="351" r="7" fill="url(#bokehSky)" class="beacon" />
+      <circle cx="834" cy="351" r="2.4" fill="#38BDF8" class="beacon" />
+    </g>
+
+    
+    <g>
+      
+      <rect x="158" y="382" width="22" height="2.2" fill="#7DD3FC" class="twinkle-a" />
+      <rect x="158" y="394" width="22" height="2.2" fill="#FFFFFF" opacity="0.7" />
+      <rect x="158" y="406" width="22" height="2.2" fill="#FF80C0" class="twinkle-b" />
+      <rect x="158" y="418" width="22" height="2.2" fill="#7DD3FC" opacity="0.65" />
+      <rect x="158" y="430" width="22" height="2.2" fill="#FFFFFF" class="twinkle-c" />
+      <rect x="158" y="442" width="22" height="2.2" fill="#7DD3FC" opacity="0.5" />
+      <rect x="158" y="454" width="22" height="2.2" fill="#FF66B5" class="twinkle-a" />
+      <rect x="158" y="466" width="22" height="2.2" fill="#FFFFFF" opacity="0.55" />
+
+      
+      <rect x="90" y="430" width="8" height="2.5" fill="#FF77C8" class="twinkle-c" />
+      <rect x="103" y="430" width="8" height="2.5" fill="#FFFFFF" opacity="0.7" />
+      <rect x="90" y="444" width="20" height="2.2" fill="#7DD3FC" opacity="0.55" />
+      <rect x="90" y="458" width="12" height="2.2" fill="#FFFFFF" class="twinkle-b" />
+      <rect x="234" y="440" width="22" height="2.2" fill="#7DD3FC" class="twinkle-a" />
+      <rect x="234" y="452" width="14" height="2.2" fill="#FFFFFF" opacity="0.6" />
+      <rect x="234" y="464" width="22" height="2.2" fill="#FF77C8" opacity="0.6" />
+      <rect x="314" y="460" width="20" height="2" fill="#FFFFFF" class="twinkle-b" />
+      <rect x="314" y="472" width="14" height="2" fill="#7DD3FC" opacity="0.6" />
+
+      
+      <rect x="820" y="392" width="28" height="2.2" fill="#FF80C0" class="twinkle-b" />
+      <rect x="820" y="404" width="28" height="2.2" fill="#FFFFFF" opacity="0.75" />
+      <rect x="820" y="416" width="28" height="2.2" fill="#7DD3FC" class="twinkle-a" />
+      <rect x="820" y="428" width="28" height="2.2" fill="#FF80C0" opacity="0.6" />
+      <rect x="820" y="440" width="28" height="2.2" fill="#FFFFFF" class="twinkle-c" />
+      <rect x="820" y="452" width="28" height="2.2" fill="#7DD3FC" opacity="0.55" />
+      <rect x="820" y="464" width="28" height="2.2" fill="#FF66B5" class="twinkle-b" />
+
+      
+      <rect x="744" y="438" width="22" height="2.2" fill="#FF77C8" class="twinkle-a" />
+      <rect x="744" y="450" width="14" height="2.2" fill="#FFFFFF" opacity="0.65" />
+      <rect x="744" y="462" width="22" height="2.2" fill="#7DD3FC" opacity="0.6" />
+      <rect x="898" y="448" width="22" height="2.2" fill="#7DD3FC" class="twinkle-c" />
+      <rect x="898" y="460" width="14" height="2.2" fill="#FF77C8" opacity="0.7" />
+      <rect x="664" y="458" width="22" height="2" fill="#FFFFFF" class="twinkle-a" />
+      <rect x="664" y="470" width="16" height="2" fill="#FF80C0" opacity="0.6" />
+
+      
+      <rect x="436" y="470" width="22" height="2" fill="#7DD3FC" class="twinkle-b" />
+      <rect x="542" y="470" width="22" height="2" fill="#FF80C0" class="twinkle-c" />
+    </g>
+
+    
+    <g fill="#080D1E">
+      
+      <path d="M 48,520 Q 56,472 64,432 L 68,432 Q 61,472 54,520 Z" />
+      <path d="M 65,434 Q 42,424 28,436 Q 46,433 65,438 Z" />
+      <path d="M 66,433 Q 48,412 36,416 Q 52,420 65,436 Z" />
+      <path d="M 67,433 Q 82,414 96,420 Q 80,424 67,436 Z" />
+      <path d="M 66,434 Q 88,426 102,440 Q 84,434 66,438 Z" />
+
+      
+      <path d="M 952,520 Q 944,472 936,432 L 932,432 Q 939,472 946,520 Z" />
+      <path d="M 935,434 Q 958,424 972,436 Q 954,433 935,438 Z" />
+      <path d="M 934,433 Q 952,412 964,416 Q 948,420 935,436 Z" />
+      <path d="M 933,433 Q 918,414 904,420 Q 920,424 933,436 Z" />
+      <path d="M 934,434 Q 912,426 898,440 Q 916,434 934,438 Z" />
+    </g>
+
+    
+    <rect x="0" y="520" width="1000" height="93" fill="url(#floorGrad)" />
+
+    
+    <g stroke="#7DD3FC" stroke-opacity="0.12" stroke-width="1">
+      <line x1="0" y1="540" x2="1000" y2="540" />
+      <line x1="0" y1="566" x2="1000" y2="566" />
+      <line x1="0" y1="596" x2="1000" y2="596" />
+      <line x1="160" y1="520" x2="40" y2="613" />
+      <line x1="330" y1="520" x2="260" y2="613" />
+      <line x1="500" y1="520" x2="500" y2="613" />
+      <line x1="670" y1="520" x2="740" y2="613" />
+      <line x1="840" y1="520" x2="960" y2="613" />
+    </g>
+
+    
+    <g opacity="0.45">
+      <rect x="148" y="526" width="44" height="3" rx="1.5" fill="#7DD3FC" class="pulse-soft" />
+      <rect x="155" y="534" width="30" height="2" rx="1" fill="#FFFFFF" />
+      <rect x="812" y="526" width="44" height="3" rx="1.5" fill="#FF66B5" class="pulse-slow" />
+      <rect x="819" y="534" width="30" height="2" rx="1" fill="#FFFFFF" />
+      <rect x="380" y="527" width="240" height="3" rx="1.5" fill="url(#neonTri)" opacity="0.7" />
+      <rect x="430" y="535" width="140" height="2" rx="1" fill="#FFFFFF" opacity="0.5" />
+    </g>
+
+    
+    <line x1="0" y1="520" x2="1000" y2="520" stroke="url(#neonTri)" stroke-width="6" stroke-opacity="0.22" />
+    <line x1="0" y1="520" x2="1000" y2="520" stroke="url(#neonTri)" stroke-width="2" />
+    <rect x="0" y="518.5" width="240" height="3" fill="url(#railSweep)" class="sweep-x" />
+
+    
+    <g class="font-main">
+      
+      <g transform="translate(500, 148)">
+        <rect x="-126" y="-15" width="252" height="30" rx="15" fill="#0B132B" fill-opacity="0.76" stroke="url(#neonTri)" stroke-width="1.4" />
+        <circle cx="-104" cy="0" r="4.2" fill="#FF4DA6" class="live-dot" />
+        <text x="6" y="4.5" text-anchor="middle" fill="#FFFFFF" font-size="11.5" font-weight="700" letter-spacing="3.2">LIVE FROM LOS SANTOS</text>
+      </g>
+
+      
+      
+      <text x="500" y="254" text-anchor="middle" fill="none" stroke="#38BDF8" stroke-width="9" stroke-opacity="0.14" font-size="88" font-weight="900" letter-spacing="13">MIDNIGHT</text>
+      <text x="500" y="254" text-anchor="middle" fill="none" stroke="#FF4DA6" stroke-width="4" stroke-opacity="0.24" font-size="88" font-weight="900" letter-spacing="13">MIDNIGHT</text>
+      
+      <text x="500" y="254" text-anchor="middle" fill="url(#titleSheen)" font-size="88" font-weight="900" letter-spacing="13">MIDNIGHT</text>
+
+      
+      <g>
+        <line x1="252" y1="306" x2="380" y2="306" stroke="#38BDF8" stroke-width="6" stroke-opacity="0.18" stroke-linecap="round" />
+        <line x1="252" y1="306" x2="380" y2="306" stroke="#7DD3FC" stroke-width="2" stroke-linecap="round" />
+        <circle cx="246" cy="306" r="3" fill="#FFFFFF" />
+
+        <line x1="620" y1="306" x2="748" y2="306" stroke="#FF4DA6" stroke-width="6" stroke-opacity="0.18" stroke-linecap="round" />
+        <line x1="620" y1="306" x2="748" y2="306" stroke="#FF80C0" stroke-width="2" stroke-linecap="round" />
+        <circle cx="754" cy="306" r="3" fill="#FFFFFF" />
+
+        
+        <text x="500" y="320" text-anchor="middle" fill="none" stroke="#FF4DA6" stroke-width="7" stroke-opacity="0.18" font-size="44" font-weight="300" letter-spacing="22">TALK</text>
+        <text x="500" y="320" text-anchor="middle" fill="url(#talkGrad)" font-size="44" font-weight="800" letter-spacing="22">TALK</text>
+      </g>
+
+      
+      <g>
+        <rect x="476" y="352" width="3.5" height="16" rx="1.75" fill="#7DD3FC" class="eq-bar-1" />
+        <rect x="484" y="346" width="3.5" height="22" rx="1.75" fill="#FFFFFF" class="eq-bar-2" />
+        <rect x="492" y="342" width="3.5" height="26" rx="1.75" fill="#FF66B5" class="eq-bar-3" />
+        <rect x="500" y="348" width="3.5" height="20" rx="1.75" fill="#FFFFFF" class="eq-bar-4" />
+        <rect x="508" y="344" width="3.5" height="24" rx="1.75" fill="#7DD3FC" class="eq-bar-5" />
+        <rect x="516" y="350" width="3.5" height="18" rx="1.75" fill="#FF80C0" class="eq-bar-2" />
+        <rect x="524" y="354" width="3.5" height="14" rx="1.75" fill="#FFFFFF" class="eq-bar-1" />
+      </g>
+
+      
+      <text x="500" y="394" text-anchor="middle" fill="#BAE6FD" font-size="13" font-weight="600" letter-spacing="5.5" opacity="0.92">AFTER HOURS WITH THE CITY</text>
+    </g>
+
+    
+    <g>
+      
+      <line x1="0" y1="24" x2="1000" y2="24" stroke="url(#neonTri)" stroke-width="5" stroke-opacity="0.16" />
+      <line x1="0" y1="24" x2="1000" y2="24" stroke="url(#neonTri)" stroke-width="1.5" stroke-opacity="0.85" />
+      <rect x="0" y="22.5" width="220" height="3" fill="url(#railSweep)" class="sweep-x" opacity="0.8" />
+
+      
+      <rect x="0" y="24" width="4" height="496" fill="#38BDF8" fill-opacity="0.22" />
+      <rect x="996" y="24" width="4" height="496" fill="#FF4DA6" fill-opacity="0.22" />
+
+      
+      <g transform="translate(500, 568)" class="font-main">
+        <rect x="-150" y="-12" width="300" height="24" rx="12" fill="#0A1024" fill-opacity="0.75" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="1" />
+        <text x="0" y="4" text-anchor="middle" fill="#FFFFFF" fill-opacity="0.82" font-size="10.5" font-weight="600" letter-spacing="3.5">MIDNIGHT TALK  •  STUDIO STAGE A</text>
+      </g>
+    </g>
+  </g>
+</svg>
