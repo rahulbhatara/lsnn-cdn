@@ -1,0 +1,360 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="613" viewBox="0 0 1000 613">
+  <defs>
+    <linearGradient id="bgLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#120926" />
+      <stop offset="60%" stop-color="#221142" />
+      <stop offset="100%" stop-color="#140a2b" />
+    </linearGradient>
+    <radialGradient id="sideGlowL" cx="85%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#79eff4" stop-opacity="0.22" />
+      <stop offset="55%" stop-color="#c24cb6" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="#120926" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="beamCyanL" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#79eff4" stop-opacity="0.26" />
+      <stop offset="100%" stop-color="#79eff4" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="beamGoldL" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#faba06" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#faba06" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="ribbonLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c24cb6" />
+      <stop offset="55%" stop-color="#faba06" />
+      <stop offset="100%" stop-color="#79eff4" />
+    </linearGradient>
+    <linearGradient id="chromeGradL" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e6e6e6" />
+      <stop offset="50%" stop-color="#a6a5a5" />
+      <stop offset="100%" stop-color="#6e6d6d" />
+    </linearGradient>
+    <linearGradient id="goldTier" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#faba06" />
+      <stop offset="50%" stop-color="#ffe169" />
+      <stop offset="100%" stop-color="#faba06" />
+    </linearGradient>
+    <linearGradient id="cardDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a1550" />
+      <stop offset="100%" stop-color="#190c33" />
+    </linearGradient>
+    <clipPath id="stageClipL">
+      <rect x="0" y="32" width="1000" height="549" />
+    </clipPath>
+  </defs>
+
+  <style>
+    .swingL { animation: swL 8s ease-in-out infinite; }
+    .swingR { animation: swR 7s ease-in-out infinite; }
+    .gridScroll { animation: mvGrid 3s linear infinite; }
+    .bulbA { animation: chA 1.2s steps(1,end) infinite; }
+    .bulbB { animation: chB 1.2s steps(1,end) infinite; }
+    .viewA { animation: showViewA 16s ease-in-out infinite; }
+    .viewB { animation: showViewB 16s ease-in-out infinite; }
+    .tabA { animation: hiTabA 16s ease-in-out infinite; }
+    .tabB { animation: hiTabB 16s ease-in-out infinite; }
+    .ladderScan { animation: climbLadder 6s ease-in-out infinite; }
+    .trophyBob { animation: bobTrophy 2.8s ease-in-out infinite; }
+    .cardPop1 { animation: cardGlow 4s ease-in-out infinite 0s; }
+    .cardPop2 { animation: cardGlow 4s ease-in-out infinite 0.6s; }
+    .cardPop3 { animation: cardGlow 4s ease-in-out infinite 1.2s; }
+    .cardPop4 { animation: cardGlow 4s ease-in-out infinite 1.8s; }
+    .cardPop5 { animation: cardGlow 4s ease-in-out infinite 2.4s; }
+    .cardPop6 { animation: cardGlow 4s ease-in-out infinite 3.0s; }
+
+    @keyframes swL { 0%,100% { transform: rotate(-14deg); } 50% { transform: rotate(18deg); } }
+    @keyframes swR { 0%,100% { transform: rotate(15deg); } 50% { transform: rotate(-16deg); } }
+    @keyframes mvGrid { from { transform: translateY(0px); } to { transform: translateY(28px); } }
+    @keyframes chA { 0%,49% { opacity: 1; } 50%,100% { opacity: 0.25; } }
+    @keyframes chB { 0%,49% { opacity: 0.25; } 50%,100% { opacity: 1; } }
+    @keyframes showViewA { 0%,44% { opacity: 1; } 50%,94% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes showViewB { 0%,44% { opacity: 0; } 50%,94% { opacity: 1; } 100% { opacity: 0; } }
+    @keyframes hiTabA { 0%,44% { opacity: 1; } 50%,94% { opacity: 0.4; } 100% { opacity: 1; } }
+    @keyframes hiTabB { 0%,44% { opacity: 0.4; } 50%,94% { opacity: 1; } 100% { opacity: 0.4; } }
+    @keyframes climbLadder {
+      0%,12% { transform: translateY(310px); }
+      18%,28% { transform: translateY(248px); }
+      34%,44% { transform: translateY(186px); }
+      50%,60% { transform: translateY(124px); }
+      66%,76% { transform: translateY(62px); }
+      82%,95% { transform: translateY(0px); }
+      100% { transform: translateY(310px); }
+    }
+    @keyframes bobTrophy { 0%,100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-9px) scale(1.04); } }
+    @keyframes cardGlow { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
+  </style>
+
+  
+  <rect width="1000" height="613" fill="url(#bgLeft)" />
+  <rect width="1000" height="613" fill="url(#sideGlowL)" />
+
+  <g clip-path="url(#stageClipL)">
+    
+    <g transform="translate(200,30)">
+      <g class="swingL">
+        <polygon points="-14,0 14,0 185,620 -185,620" fill="url(#beamCyanL)" />
+      </g>
+    </g>
+    <g transform="translate(820,30)">
+      <g class="swingR">
+        <polygon points="-14,0 14,0 185,620 -185,620" fill="url(#beamGoldL)" />
+      </g>
+    </g>
+
+    
+    <g opacity="0.25">
+      <line x1="0" y1="465" x2="1000" y2="465" stroke="#79eff4" stroke-width="2.5" />
+      <g class="gridScroll">
+        <line x1="0" y1="465" x2="1000" y2="465" stroke="#c24cb6" stroke-width="1.5" />
+        <line x1="0" y1="493" x2="1000" y2="493" stroke="#79eff4" stroke-width="1.5" />
+        <line x1="0" y1="521" x2="1000" y2="521" stroke="#c24cb6" stroke-width="1.8" />
+        <line x1="0" y1="549" x2="1000" y2="549" stroke="#79eff4" stroke-width="2" />
+        <line x1="0" y1="577" x2="1000" y2="577" stroke="#c24cb6" stroke-width="2" />
+      </g>
+      <line x1="200" y1="465" x2="50" y2="585" stroke="#79eff4" stroke-width="1.5" />
+      <line x1="400" y1="465" x2="290" y2="585" stroke="#79eff4" stroke-width="1.5" />
+      <line x1="600" y1="465" x2="560" y2="585" stroke="#79eff4" stroke-width="1.5" />
+      <line x1="800" y1="465" x2="840" y2="585" stroke="#79eff4" stroke-width="1.5" />
+    </g>
+
+    
+    <path d="M -20 460 Q 480 440 1020 340" fill="none" stroke="url(#ribbonLeft)" stroke-width="28" opacity="0.22" />
+    <path d="M -20 460 Q 480 440 1020 340" fill="none" stroke="#79eff4" stroke-width="4" opacity="0.7" />
+    <path d="M -20 476 Q 480 456 1020 356" fill="none" stroke="#faba06" stroke-width="3" opacity="0.65" />
+
+    
+    <g transform="translate(54,54)">
+      <rect x="0" y="0" width="892" height="60" rx="18" fill="#170c30" stroke="#a6a5a5" stroke-width="2.5" />
+      <rect x="10" y="10" width="230" height="40" rx="12" fill="#e23a47" />
+      <text x="125" y="37" text-anchor="middle" font-family="&#39;Arial Black&#39;,&#39;Trebuchet MS&#39;,sans-serif" font-size="20" font-weight="900" fill="#ffffff" letter-spacing="1.5">VINEWOOD BUZZ!</text>
+
+      
+      <g class="tabA">
+        <rect x="448" y="11" width="206" height="38" rx="19" fill="#faba06" />
+        <text x="551" y="36" text-anchor="middle" font-family="&#39;Trebuchet MS&#39;,&#39;Arial Black&#39;,sans-serif" font-size="17" font-weight="900" fill="#140a2b" letter-spacing="1">★ PRIZE LADDER</text>
+      </g>
+      <g class="tabB">
+        <rect x="668" y="11" width="212" height="38" rx="19" fill="#79eff4" />
+        <text x="774" y="36" text-anchor="middle" font-family="&#39;Trebuchet MS&#39;,&#39;Arial Black&#39;,sans-serif" font-size="17" font-weight="900" fill="#140a2b" letter-spacing="1">★ QUIZ TOPICS</text>
+      </g>
+    </g>
+
+    
+    <g class="viewA">
+      
+      <g transform="translate(54,134)">
+        
+        <rect x="0" y="0" width="562" height="54" rx="14" fill="url(#goldTier)" stroke="#ffffff" stroke-width="2.5" />
+        <rect x="12" y="10" width="44" height="34" rx="9" fill="#140a2b" />
+        <text x="34" y="34" text-anchor="middle" font-family="&#39;Arial Black&#39;,sans-serif" font-size="20" font-weight="900" fill="#faba06">06</text>
+        <text x="74" y="34" font-family="&#39;Arial Black&#39;,&#39;Trebuchet MS&#39;,sans-serif" font-size="22" font-weight="900" fill="#140a2b" letter-spacing="1">GRAND JACKPOT</text>
+        <text x="540" y="36" text-anchor="end" font-family="&#39;Arial Black&#39;,sans-serif" font-size="28" font-weight="900" fill="#e23a47">$100,000</text>
+
+        
+        <rect x="0" y="62" width="562" height="54" rx="14" fill="#2a1452" stroke="#c24cb6" stroke-width="2.5" />
+        <rect x="12" y="72" width="44" height="34" rx="9" fill="#c24cb6" />
+        <text x="34" y="96" text-anchor="middle" font-family="&#39;Arial Black&#39;,sans-serif" font-size="20" font-weight="900" fill="#ffffff">05</text>
+        <text x="74" y="96" font-family="&#39;Trebuchet MS&#39;,&#39;Arial Black&#39;,sans-serif" font-size="21" font-weight="900" fill="#ffffff" letter-spacing="1">FINAL BUZZ SHOWDOWN</text>
+        <text x="540" y="97" text-anchor="end" font-family="&#39;Arial Black&#39;,sans-serif" font-size="25" font-weight="900" fill="#faba06">$50,000</text>
+
+        
+        <rect x="0" y="124" width="562" height="54" rx="14" fill="#26124a" stroke="#e23a47" stroke-width="2.5" />
+        <rect x="12" y="134" width="44" height="34" rx="9" fill="#e23a47" />
+        <text x="34" y="158" text-anchor="middle" font-family="&#39;Arial Black&#39;,sans-serif" font-size="20" font-weight="900" fill="#ffffff">04</text>
+        <text x="74" y="158" font-family="&#39;Trebuchet MS&#39;,&#39;Arial Black&#39;,sans-serif" font-size="21" font-weight="900" fill="#ffffff" letter-spacing="1">DOUBLE TROUBLE</text>
+        <text x="540" y="159" text-anchor="end" font-family="&#39;Arial Black&#39;,sans-serif" font-size="25" font-weight="900" fill="#79eff4">$25,000</text>
+
+        
+        <rect x="0" y="186" width="562" height="54" rx="14" fill="#1e224f" stroke="#79eff4" stroke-width="3" />
+        <rect x="12" y="196" width="44" height="34" rx="9" fill="#79eff4" />
+        <text x="34" y="220" text-anchor="middle" font-family="&#39;Arial Black&#39;,sans-serif" font-size="20" font-weight="900" fill="#140a2b">03</text>
+        <text x="74" y="220" font-family="&#39;Trebuchet MS&#39;,&#39;Arial Black&#39;,sans-serif" font-size="21" font-weight="900" fill="#79eff4" letter-spacing="1">HOT STREAK ★ SAFE</text>
+        <text x="540" y="221" text-anchor="end" font-family="&#39;Arial Black&#39;,sans-serif" font-size="25" font-weight="900" fill="#ffffff">$10,000</text>
+
+        
+        <rect x="0" y="248" width="562" height="54" rx="14" fill="#211042" stroke="#a6a5a5" stroke-width="2" />
+        <rect x="12" y="258" width="44" height="34" rx="9" fill="#a6a5a5" />
+        <text x="34" y="282" text-anchor="middle" font-family="&#39;Arial Black&#39;,sans-serif" font-size="20" font-weight="900" fill="#140a2b">02</text>
+        <text x="74" y="282" font-family="&#39;Trebuchet MS&#39;,&#39;Arial Black&#39;,sans-serif" font-size="21" font-weight="900" fill="#e6e6e6" letter-spacing="1">FAST LANE TRIVIA</text>
+        <text x="540" y="283" text-anchor="end" font-family="&#39;Arial Black&#39;,sans-serif" font-size="25" font-weight="900" fill="#a6a5a5">$5,000</text>
+
+        
+        <rect x="0" y="310" width="562" height="54" rx="14" fill="#1d0e3a" stroke="#a6a5a5" stroke-width="2" opacity="0.92" />
+        <rect x="12" y="320" width="44" height="34" rx="9" fill="#a6a5a5" />
+        <text x="34" y="344" text-anchor="middle" font-family="&#39;Arial Black&#39;,sans-serif" font-size="20" font-weight="900" fill="#140a2b">01</text>
+        <text x="74" y="344" font-family="&#39;Trebuchet MS&#39;,&#39;Arial Black&#39;,sans-serif" font-size="21" font-weight="900" fill="#d4d4d4" letter-spacing="1">WARM-UP ROUND</text>
+        <text x="540" y="345" text-anchor="end" font-family="&#39;Arial Black&#39;,sans-serif" font-size="25" font-weight="900" fill="#a6a5a5">$1,000</text>
+
+        
+        <g class="ladderScan">
+          <rect x="-4" y="-3" width="570" height="60" rx="16" fill="none" stroke="#79eff4" stroke-width="4.5" />
+          <polygon points="-18,27 -4,17 -4,37" fill="#faba06" />
+        </g>
+      </g>
+
+      
+      <g transform="translate(642,134)">
+        <rect x="0" y="0" width="304" height="364" rx="26" fill="url(#cardDark)" stroke="#faba06" stroke-width="3.5" />
+        <rect x="18" y="18" width="268" height="36" rx="18" fill="#c24cb6" />
+        <text x="152" y="42" text-anchor="middle" font-family="&#39;Arial Black&#39;,sans-serif" font-size="16" font-weight="900" fill="#ffffff" letter-spacing="1.5">TONIGHT'S GRAND PRIZE</text>
+
+        
+        <g transform="translate(152,162)">
+          <g class="trophyBob">
+            <circle cx="0" cy="0" r="76" fill="#faba06" opacity="0.16" />
+            <circle cx="0" cy="0" r="58" fill="#79eff4" opacity="0.14" />
+            
+            <path d="M -42 -42 L 42 -42 L 34 10 C 30 34 16 44 0 44 C -16 44 -30 34 -34 10 Z" fill="#faba06" stroke="#ffffff" stroke-width="3" />
+            <path d="M -40 -30 C -62 -30 -62 6 -34 10" fill="none" stroke="#faba06" stroke-width="7" stroke-linecap="round" />
+            <path d="M 40 -30 C 62 -30 62 6 34 10" fill="none" stroke="#faba06" stroke-width="7" stroke-linecap="round" />
+            <rect x="-10" y="42" width="20" height="22" fill="#e28406" />
+            <rect x="-34" y="62" width="68" height="14" rx="6" fill="url(#chromeGradL)" />
+            
+            <polygon points="0,-24 6,-10 21,-8 10,2 13,17 0,10 -13,17 -10,2 -21,-8 -6,-10" fill="#e23a47" />
+          </g>
+        </g>
+
+        <text x="152" y="286" text-anchor="middle" font-family="&#39;Arial Black&#39;,sans-serif" font-size="38" font-weight="900" fill="#faba06">$100K</text>
+        <text x="152" y="314" text-anchor="middle" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="16" font-weight="800" fill="#79eff4" letter-spacing="1.5">MAZE BANK CASH POT</text>
+        <rect x="40" y="328" width="224" height="22" rx="11" fill="#120926" />
+        <text x="152" y="344" text-anchor="middle" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="13" font-weight="700" fill="#a6a5a5" letter-spacing="1">NO RISK • NO GLORY!</text>
+      </g>
+    </g>
+
+    
+    <g class="viewB">
+      
+      
+      <g transform="translate(54,140)">
+        <g class="cardPop1">
+          <rect x="0" y="0" width="278" height="170" rx="22" fill="url(#cardDark)" stroke="#faba06" stroke-width="3.5" />
+          <circle cx="52" cy="52" r="28" fill="#faba06" />
+          <polygon points="52,32 57,45 71,47 61,56 64,70 52,63 40,70 43,56 33,47 47,45" fill="#140a2b" />
+          <text x="94" y="50" font-family="&#39;Arial Black&#39;,sans-serif" font-size="22" font-weight="900" fill="#faba06">VINEWOOD</text>
+          <text x="94" y="76" font-family="&#39;Arial Black&#39;,sans-serif" font-size="22" font-weight="900" fill="#ffffff">POP!</text>
+          <line x1="22" y1="100" x2="256" y2="100" stroke="#faba06" stroke-width="1.5" opacity="0.4" />
+          <text x="22" y="128" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="16" font-weight="700" fill="#e6e6e6">Movies, Music &amp; Celebs</text>
+          <text x="22" y="150" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="14" font-weight="700" fill="#a6a5a5">RED CARPET TRIVIA</text>
+        </g>
+      </g>
+
+      
+      <g transform="translate(361,140)">
+        <g class="cardPop2">
+          <rect x="0" y="0" width="278" height="170" rx="22" fill="url(#cardDark)" stroke="#79eff4" stroke-width="3.5" />
+          <circle cx="52" cy="52" r="28" fill="#79eff4" />
+          <path d="M 52 32 C 41 32 34 40 34 50 C 34 62 52 74 52 74 C 52 74 70 62 70 50 C 70 40 63 32 52 32 Z" fill="#140a2b" />
+          <circle cx="52" cy="49" r="7" fill="#79eff4" />
+          <text x="94" y="50" font-family="&#39;Arial Black&#39;,sans-serif" font-size="21" font-weight="900" fill="#79eff4">SAN ANDREAS</text>
+          <text x="94" y="76" font-family="&#39;Arial Black&#39;,sans-serif" font-size="22" font-weight="900" fill="#ffffff">SECRETS</text>
+          <line x1="22" y1="100" x2="256" y2="100" stroke="#79eff4" stroke-width="1.5" opacity="0.4" />
+          <text x="22" y="128" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="16" font-weight="700" fill="#e6e6e6">Local Landmarks &amp; Icons</text>
+          <text x="22" y="150" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="14" font-weight="700" fill="#a6a5a5">LS TO PALETO BAY</text>
+        </g>
+      </g>
+
+      
+      <g transform="translate(668,140)">
+        <g class="cardPop3">
+          <rect x="0" y="0" width="278" height="170" rx="22" fill="url(#cardDark)" stroke="#e23a47" stroke-width="3.5" />
+          <circle cx="52" cy="52" r="28" fill="#e23a47" />
+          <rect x="34" y="40" width="36" height="24" rx="4" fill="#ffffff" />
+          <rect x="34" y="40" width="16" height="13" rx="2" fill="#221142" />
+          <rect x="50" y="42" width="20" height="4" fill="#e23a47" />
+          <rect x="50" y="50" width="20" height="4" fill="#e23a47" />
+          <rect x="34" y="58" width="36" height="4" fill="#e23a47" />
+          <text x="94" y="50" font-family="&#39;Arial Black&#39;,sans-serif" font-size="21" font-weight="900" fill="#e23a47">COAST TO</text>
+          <text x="94" y="76" font-family="&#39;Arial Black&#39;,sans-serif" font-size="22" font-weight="900" fill="#ffffff">COAST USA</text>
+          <line x1="22" y1="100" x2="256" y2="100" stroke="#e23a47" stroke-width="1.5" opacity="0.4" />
+          <text x="22" y="128" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="16" font-weight="700" fill="#e6e6e6">All-American Fast Facts</text>
+          <text x="22" y="150" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="14" font-weight="700" fill="#a6a5a5">SPORTS, FOOD &amp; CULTURE</text>
+        </g>
+      </g>
+
+      
+      
+      <g transform="translate(54,332)">
+        <g class="cardPop4">
+          <rect x="0" y="0" width="278" height="170" rx="22" fill="url(#cardDark)" stroke="#c24cb6" stroke-width="3.5" />
+          <circle cx="52" cy="52" r="28" fill="#c24cb6" />
+          <circle cx="52" cy="52" r="16" fill="none" stroke="#ffffff" stroke-width="4.5" />
+          <circle cx="52" cy="52" r="5" fill="#faba06" />
+          <line x1="38" y1="52" x2="66" y2="52" stroke="#ffffff" stroke-width="3.5" />
+          <line x1="52" y1="52" x2="52" y2="66" stroke="#ffffff" stroke-width="3.5" />
+          <text x="94" y="50" font-family="&#39;Arial Black&#39;,sans-serif" font-size="22" font-weight="900" fill="#c24cb6">STREET</text>
+          <text x="94" y="76" font-family="&#39;Arial Black&#39;,sans-serif" font-size="22" font-weight="900" fill="#ffffff">SMARTS</text>
+          <line x1="22" y1="100" x2="256" y2="100" stroke="#c24cb6" stroke-width="1.5" opacity="0.4" />
+          <text x="22" y="128" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="16" font-weight="700" fill="#e6e6e6">Rides, Slang &amp; Nightlife</text>
+          <text x="22" y="150" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="14" font-weight="700" fill="#a6a5a5">WEST COAST VIBES</text>
+        </g>
+      </g>
+
+      
+      <g transform="translate(361,332)">
+        <g class="cardPop5">
+          <rect x="0" y="0" width="278" height="170" rx="22" fill="url(#cardDark)" stroke="#faba06" stroke-width="3.5" />
+          <circle cx="52" cy="52" r="28" fill="#faba06" />
+          <text x="52" y="64" text-anchor="middle" font-family="&#39;Arial Black&#39;,sans-serif" font-size="36" font-weight="900" fill="#140a2b">?</text>
+          <text x="94" y="50" font-family="&#39;Arial Black&#39;,sans-serif" font-size="22" font-weight="900" fill="#faba06">WILD</text>
+          <text x="94" y="76" font-family="&#39;Arial Black&#39;,sans-serif" font-size="22" font-weight="900" fill="#ffffff">CARD!</text>
+          <line x1="22" y1="100" x2="256" y2="100" stroke="#faba06" stroke-width="1.5" opacity="0.4" />
+          <text x="22" y="128" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="16" font-weight="700" fill="#e6e6e6">Expect The Unexpected</text>
+          <text x="22" y="150" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="14" font-weight="700" fill="#a6a5a5">MYSTERY BONUS POINTS</text>
+        </g>
+      </g>
+
+      
+      <g transform="translate(668,332)">
+        <g class="cardPop6">
+          <rect x="0" y="0" width="278" height="170" rx="22" fill="url(#cardDark)" stroke="#79eff4" stroke-width="3.5" />
+          <circle cx="52" cy="52" r="28" fill="#79eff4" />
+          <polygon points="56,30 38,54 50,54 46,74 66,48 54,48" fill="#140a2b" />
+          <text x="94" y="50" font-family="&#39;Arial Black&#39;,sans-serif" font-size="21" font-weight="900" fill="#79eff4">LIGHTNING</text>
+          <text x="94" y="76" font-family="&#39;Arial Black&#39;,sans-serif" font-size="22" font-weight="900" fill="#ffffff">BLITZ!</text>
+          <line x1="22" y1="100" x2="256" y2="100" stroke="#79eff4" stroke-width="1.5" opacity="0.4" />
+          <text x="22" y="128" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="16" font-weight="700" fill="#e6e6e6">60-Second Rapid Fire</text>
+          <text x="22" y="150" font-family="&#39;Trebuchet MS&#39;,sans-serif" font-size="14" font-weight="700" fill="#a6a5a5">SPEED WINS IT ALL</text>
+        </g>
+      </g>
+    </g>
+
+    
+    <text x="500" y="550" text-anchor="middle" font-family="&#39;Trebuchet MS&#39;,Arial,sans-serif" font-size="16" font-weight="800" fill="#a6a5a5" letter-spacing="3.5">CLIMB THE LADDER  •  PICK YOUR TOPIC  •  CLAIM THE CROWN</text>
+  </g>
+
+  
+  <rect x="0" y="0" width="1000" height="32" fill="url(#chromeGradL)" />
+  <rect x="0" y="28" width="1000" height="4" fill="#79eff4" />
+  <rect x="0" y="581" width="1000" height="32" fill="url(#chromeGradL)" />
+  <rect x="0" y="581" width="1000" height="4" fill="#c24cb6" />
+
+  <g>
+    <circle cx="40" cy="15" r="7" fill="#c24cb6" class="bulbB" />
+    <circle cx="115" cy="15" r="7" fill="#faba06" class="bulbA" />
+    <circle cx="190" cy="15" r="7" fill="#79eff4" class="bulbB" />
+    <circle cx="265" cy="15" r="7" fill="#e23a47" class="bulbA" />
+    <circle cx="340" cy="15" r="7" fill="#c24cb6" class="bulbB" />
+    <circle cx="415" cy="15" r="7" fill="#faba06" class="bulbA" />
+    <circle cx="490" cy="15" r="7" fill="#79eff4" class="bulbB" />
+    <circle cx="565" cy="15" r="7" fill="#e23a47" class="bulbA" />
+    <circle cx="640" cy="15" r="7" fill="#c24cb6" class="bulbB" />
+    <circle cx="715" cy="15" r="7" fill="#faba06" class="bulbA" />
+    <circle cx="790" cy="15" r="7" fill="#79eff4" class="bulbB" />
+    <circle cx="865" cy="15" r="7" fill="#e23a47" class="bulbA" />
+    <circle cx="940" cy="15" r="7" fill="#faba06" class="bulbB" />
+  </g>
+  <g>
+    <circle cx="40" cy="598" r="7" fill="#faba06" class="bulbA" />
+    <circle cx="115" cy="598" r="7" fill="#79eff4" class="bulbB" />
+    <circle cx="190" cy="598" r="7" fill="#e23a47" class="bulbA" />
+    <circle cx="265" cy="598" r="7" fill="#c24cb6" class="bulbB" />
+    <circle cx="340" cy="598" r="7" fill="#faba06" class="bulbA" />
+    <circle cx="415" cy="598" r="7" fill="#79eff4" class="bulbB" />
+    <circle cx="490" cy="598" r="7" fill="#e23a47" class="bulbA" />
+    <circle cx="565" cy="598" r="7" fill="#c24cb6" class="bulbB" />
+    <circle cx="640" cy="598" r="7" fill="#faba06" class="bulbA" />
+    <circle cx="715" cy="598" r="7" fill="#79eff4" class="bulbB" />
+    <circle cx="790" cy="598" r="7" fill="#e23a47" class="bulbA" />
+    <circle cx="865" cy="598" r="7" fill="#c24cb6" class="bulbB" />
+    <circle cx="940" cy="598" r="7" fill="#79eff4" class="bulbA" />
+  </g>
+</svg>
