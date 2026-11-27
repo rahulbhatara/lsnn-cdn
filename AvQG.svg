@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="50%" stop-color="#151f33" />
+      <stop offset="100%" stop-color="#0b1120" />
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cc90fd" />
+      <stop offset="45%" stop-color="#7601ff" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+    <radialGradient id="ambientGlow" cx="50%" cy="54%" r="52%">
+      <stop offset="0%" stop-color="#7601ff" stop-opacity="0.38" />
+      <stop offset="60%" stop-color="#7601ff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#7601ff" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="topGlow" cx="85%" cy="12%" r="48%">
+      <stop offset="0%" stop-color="#cc90fd" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#cc90fd" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="pillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6d00eb" />
+      <stop offset="100%" stop-color="#9333ea" />
+    </linearGradient>
+    <linearGradient id="numGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e9d5ff" />
+    </linearGradient>
+    <linearGradient id="barLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7601ff" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="barRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#cc90fd" />
+      <stop offset="100%" stop-color="#f3e8ff" />
+    </linearGradient>
+    <clipPath id="cardClip">
+      <rect x="6" y="6" width="148" height="148" rx="34" />
+    </clipPath>
+  </defs>
+
+  
+  <rect x="6" y="6" width="148" height="148" rx="34" fill="url(#bg)" />
+
+  
+  <g clip-path="url(#cardClip)">
+    <rect x="6" y="6" width="148" height="148" fill="url(#ambientGlow)" />
+    <rect x="6" y="6" width="148" height="148" fill="url(#topGlow)" />
+    <polygon points="6,6 104,6 42,154 6,154" fill="#ffffff" opacity="0.03" />
+  </g>
+
+  
+  <rect x="6" y="6" width="148" height="148" rx="34" fill="none" stroke="url(#borderGrad)" stroke-width="2.5" />
+  <rect x="10" y="10" width="140" height="140" rx="30" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+
+  
+  <rect x="27" y="23" width="106" height="21" rx="10.5" fill="url(#pillGrad)" />
+  <rect x="27.5" y="23.5" width="105" height="20" rx="10" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1" />
+  <text x="80" y="37.2" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Inter, Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="1.7">HOMIE FEUD</text>
+
+  
+  <g transform="translate(3, 3)" opacity="0.72">
+    <path d="M24,68 L36,56 L47,56 L47,112 L35,112 L35,71 L31,75 Z" fill="#7601ff" />
+    <rect x="59" y="62" width="25" height="44" rx="12.5" fill="none" stroke="#7601ff" stroke-width="12" />
+    <rect x="102" y="62" width="25" height="44" rx="12.5" fill="none" stroke="#7601ff" stroke-width="12" />
+  </g>
+
+  
+  <g>
+    <path d="M24,68 L36,56 L47,56 L47,112 L35,112 L35,71 L31,75 Z" fill="url(#numGrad)" />
+    <rect x="59" y="62" width="25" height="44" rx="12.5" fill="none" stroke="url(#numGrad)" stroke-width="12" />
+    <rect x="102" y="62" width="25" height="44" rx="12.5" fill="none" stroke="url(#numGrad)" stroke-width="12" />
+  </g>
+
+  
+  <rect x="28" y="123" width="49" height="4.5" rx="2.25" fill="url(#barLeft)" />
+  <rect x="83" y="123" width="49" height="4.5" rx="2.25" fill="url(#barRight)" />
+  <text x="80" y="140" text-anchor="middle" fill="#94a3b8" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Inter, Arial, sans-serif" font-size="8.2" font-weight="700" letter-spacing="2.8">LSNN ORIGINAL</text>
+</svg>
